@@ -110,7 +110,7 @@ html{
     height: 100%;
     position: absolute;
     left: 50%;
-    border-bottom: 5px solid black;
+    /* border-bottom: 5px solid black; */
     float: left;
     padding: 1vmin;
     
@@ -213,8 +213,7 @@ html{
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(chaos_large.png);
-    padding: 0 1rem 0;
-    
+    padding: 0 1rem 0;  
   }
 
   #chaosCounter{
