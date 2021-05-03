@@ -1,0 +1,41 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.title{
+    margin: 0 auto;
+    padding: 3rem;
+    text-align: center;
+    font-size: 4vmin;
+}
+.container{
+    /* height: 100%; */
+    background-color: #dcdfe0;
+}
+#appDescription{
+    padding: 1rem;
+    text-align: center;
+    font-size: 2vmin;
+}
+.appDescription p{
+    text-align: center;
+    
+}
+.imageRow{
+    display: flex;
+    justify-content: center;
+    /* height: 100%; */
+}
+.tutorialContainer{
+    cursor: pointer;
+    padding: 1rem;
+    border: 10px solid black;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.description p{
+    font-size: 1.5vmin;
+}
