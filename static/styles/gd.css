@@ -1,0 +1,5327 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    
+    
+}
+
+html{
+    padding: 0;
+    
+}
+
+
+
+.navbar{
+    z-index: 10;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    font-size: 2vh;
+
+}
+#reset{
+    width: 3%;
+    background-color: #9BABA8;
+    opacity: 0.3;
+    border-radius: 50%;
+    color: white;
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.5vmin;
+  }
+#reset:hover{
+    background-color: red;
+}
+.blinkMode{
+    width: 10%;
+    background-color: #9BABA8;
+    opacity: 0.3;
+    color: white;
+    font-weight: bold;
+    font-size: 2vmin;
+  }
+
+
+  
+  .blinkMode:hover{
+    background-color: black;
+  }
+  .standardMode{
+    background-color: #9BABA8;
+    opacity: 0.3;   
+    width: 10%;
+    color: white;
+    font-weight: bold;
+    font-size: 2vmin;
+  }
+  .standardMode:hover{
+      background-color: black;
+  }
+  .resultsButton{
+    background-color: #9BABA8;
+    width: 10%;
+    color: white;
+    opacity: 0.3;
+    font-weight: bold;
+    font-size: 2vmin;
+    
+  }
+  .resultsButton:hover{
+    background-color: black;
+    opacity: 0.3;
+  }
+
+
+  #rightArrow{
+      position: absolute;
+      right: 0;     
+      bottom: 0;
+      color: white;
+  }
+  
+  #leftArrow{
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+  #innerButton{
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 3vmin;
+      height: 3vmin;
+      border-radius: 50%;  
+      font-size: 2vmin; 
+  }
+  
+  #firstColumn{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    border-right: 3px groove black; 
+    border-bottom: 5px solid black;
+    float: left;
+    
+  }
+  #secondColumn, #thirdColumn, #fourthColumn, #fifthColumn, #sixthColumn{
+    width: 42%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    border-bottom: 5px solid black;
+    float: left;
+    padding: 1vmin;
+    
+  }
+.toDisplayOnHover .starName{
+    color: #faee82;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  .toDisplayOnHover .attributes{
+    text-align: left;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: lighter;
+  }
+  .toDisplayOnHover .barrier{
+    text-align: left;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: lighter;
+    
+  }
+  .toDisplayOnHover .affinityBonus {
+    text-align: left;
+    font-size: 2.5rem;
+    color: white;
+  }
+  .toDisplayOnHover .affinityRequirement {
+    text-align: left;
+    font-size: 2.5rem;
+    color: white;
+  }
+  .affinityRequirement img{
+      height: 40px;
+      mix-blend-mode: screen;
+      filter: brightness(150%);    
+  }
+  .affinityBonus img{
+    height: 40px;
+    mix-blend-mode: exclusion;
+    filter: brightness(150%);    
+}
+  .toDisplayOnHover{
+    background-color: #14100b;
+    opacity: 0.8;
+    padding: 40px;
+    border: solid white;  
+    position: absolute;
+    mix-blend-mode: lighten;
+    left: 80px;
+    width: max-content;
+    max-width: 850px;  
+  }
+  
+  .results{
+    position: sticky;
+    height: 50vmin;
+    width: 70vmin;
+    left: 20vw;
+    top: 20vh;
+    padding: 15px;  
+    z-index: 10;
+    background-color: white;
+    opacity: 0.3;
+    background-clip: content-box;
+      box-shadow: inset 0 20px 0 15px black,
+      inset 0 -40px 0 15px black;
+    
+      
+  }
+  .columnParagraph{
+    color: #a66524;
+    font-size: 1.5vmin; 
+    padding: 1rem; 
+    margin: 0;
+  }
+  
+  .affinityDisplay{   
+    width: 50%;
+    top:0;
+    z-index: 10;
+    display: flex;
+  }
+  
+
+  .devotionPoints p{
+    color: white;
+  }
+  #chaos{
+    width: 5%;
+    padding: 0 1rem 0;
+    padding: 0 1rem 0;
+  }
+  #chaosImage{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(chaos_large.png);
+    padding: 0 1rem 0;
+    
+  }
+
+  #chaosCounter{
+    text-align: center;
+    padding: 0 1rem 0;
+  }
+
+  #chaosCounter p{
+    color: white;
+    text-align: center;
+  }
+  #eldritch{
+    width: 5%;
+    padding: 0 1rem 0;
+    padding: 0 1rem 0;
+  }
+  #eldritchImage{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(eldritch_large.png);
+    padding: 0 1rem 0;
+  }
+
+  #eldritchCounter{
+    text-align: center;
+    padding: 0 1rem 0;
+  }
+  #eldritchCounter p{
+    color: white;
+    text-align: center;
+  }
+  #order{
+    width: 5%;
+    padding: 0 1rem 0;
+    padding: 0 1rem 0;
+  }
+  #orderImage{
+    width: 100%;  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(order_large.png);
+    padding: 0 1rem 0;
+    
+  }
+  #orderCounter{
+    text-align: center;
+    padding: 0 1rem 0;
+  }
+  #orderCounter p{
+    color: white;
+    text-align: center;
+  }
+
+  #primordial{  
+    width: 5%;
+    padding: 0 1rem 0;
+  }
+  #primordialImage{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(primordial_large.png);
+    padding: 0 1rem 0;
+  }
+  #primordialCounter{
+    text-align: center;
+    padding: 0 1rem 0;
+  }
+  #primordialCounter p{
+    color: white;
+    text-align: center;
+  }
+  #ascendants{
+    width: 5%;
+    padding: 0 1rem 0;
+    
+  }
+  #ascendantsImage{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(ascendant_large.png);
+    padding: 0 1rem 0;
+  }
+  #ascendantsCounter{
+    text-align: center;
+    padding: 0 1rem 0;
+  }
+  #ascendantsCounter p{
+    color: white;
+    text-align: center;
+  }
+#container{
+    width: 7433px;
+    height: 6783px; 
+    position: relative;
+    background-image: url('./bad_version.png');
+    background-position: center;
+    margin: 0;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.starContainer{
+    background-image: url('devotion_star_disabled.png');
+    background-size: 120%;
+    background-position: center;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    mix-blend-mode: lighten;
+    display: flex;
+    align-items: center;    
+    cursor: pointer;
+    
+}
+.starContainer.skill{
+    background-image: url('devotion_star_skill.png');
+    background-size: 150%;    
+}
+.connector{
+    background-image: url('devotion_connectoroff.png');
+    background-position: center;
+    position: absolute;
+    height: 2px;
+    mix-blend-mode: lighten;
+    filter: brightness(70%);
+  }
+#FirstViretheStoneMatronStar{
+    left: 3494px;
+    top: 820px;
+    
+}
+
+#SecondViretheStoneMatronStar{
+    left: 3524px;
+    top: 583px;   
+}
+#ThirdViretheStoneMatronStar{
+    left: 3350px;
+    top: 405px;
+}
+#FistofVire{
+    left: 3254px;
+    top: 795px; 
+}
+#FourthViretheStoneMatronStar{
+    left: 3474px;
+    top: 350px;
+}
+#FifthViretheStoneMatronStar{
+    left: 3274px;
+    top: 560px; 
+} 
+#Blizzard{
+    left: 4004px;
+    top: 1106px; 
+}
+#SixthAmatoktheSpiritofWinterStar{
+    left: 3964px;
+    top: 1230px; 
+}
+#SecondAmatoktheSpiritofWinterStar{
+    left: 3834px;
+    top: 1230px; 
+}
+#FirstAmatoktheSpiritofWinterStar{
+    left: 3834px;
+    top: 1395px; 
+}
+#ThirdAmatoktheSpiritofWinterStar{
+    left: 3834px;
+    top: 1106px; 
+}
+#FourthAmatoktheSpiritofWinterStar{
+    left: 3709px;
+    top: 1230px;
+}
+#FifthAmatoktheSpiritofWinterStar{
+    left: 3673px;
+    top: 1106px; 
+}
+
+#FirstTreeofLifeStar{
+    left: 4760px;
+    top: 1180px; 
+}
+#SecondTreeofLifeStar{
+    left: 4760px;
+    top: 1000px;
+}
+#ThirdTreeofLifeStar{
+    left: 4560px;
+    top: 884px;
+}
+#FourthTreeofLifeStar{
+    left: 4760px;
+    top: 868px;  
+}
+#HealingRain{
+    left: 4727px;
+    top: 692px; 
+}
+#FirstIshtaktheSpringMaidenStar{
+    left: 5209px;
+    top: 552px;
+}
+#SecondIshtaktheSpringMaidenStar{
+    left: 5313px;
+    top: 712px;
+}
+#ThirdIshtaktheSpringMaidenStar{
+    left: 5479px;
+    top: 736px;
+}
+#FourthIshtaktheSpringMaidenStar{
+    left: 5651px;
+    top: 668px;
+}
+#FifthIshtaktheSpringMaidenStar{
+    left: 5435px;
+    top: 620px;  
+}
+#NaturesGuardians{
+    left: 5439px;
+    top: 496px;  
+}
+#FirstLightofEmpyrionStar{
+    left: 6035px;
+    top: 1090px;  
+}
+#SecondLightofEmpyrionStar{
+    left: 5931px;
+    top: 1282px; 
+}
+#ThirdLightofEmpyrionStar{
+    left: 6027px;
+    top: 1460px; 
+}
+#FourthLightofEmpyrionStar{
+    left: 6211px;
+    top: 1464px; 
+}
+#FifthLightofEmpyrionStar{
+    left: 6231px;
+    top: 1301px; 
+}
+
+#SixthLightofEmpyrionStar{
+    left: 6163px;
+    top: 1244px;
+}
+#LightofEmpyrion{
+    left: 6103px;
+    top: 1320px;
+}
+#maul{
+    left: 4627px;
+    top: 1500px;
+}
+#FourthDireBearStar{
+    left: 4690px;
+    top: 1540px;
+}
+#FifthDireBearStar{
+    left: 4629px;
+    top: 1680px;
+}
+#ThirdDireBearStar{
+    left: 4761px;
+    top: 1580px;
+}
+#SecondDireBearStar{
+    left: 4813px;
+    top: 1650px;
+}
+#FirstDireBearStar{
+    left: 4870px;
+    top: 1770px;
+}
+#FirstUlotheKeeperofTheWatersStar {
+    left: 5208px;
+    top: 1516px; 
+}
+#SecondUlotheKeeperofTheWatersStar {
+    left: 5252px;
+    top: 1360px; 
+}
+#ThirdUlotheKeeperofTheWatersStar {
+    left: 5197px;
+    top: 1295px; 
+}
+#FourthUlotheKeeperofTheWatersStar {
+    left: 5301px;
+    top: 1301px; 
+}
+#CleansingWaters {
+    left: 5323px;
+    top: 1534px; 
+}
+#FirstPantherStar {
+    left: 5101px;
+    top: 2360px;  
+}
+#SecondPantherStar {
+    left: 5006px;
+    top: 2294px; 
+}
+#ThirdPantherStar {
+    left: 4858px;
+    top: 2303px; 
+}
+#FourthPantherStar {
+    left: 4764px;
+    top: 2327px; 
+}
+#FirstHoundStar {
+    left: 4580px;
+    top: 2450px;  
+}
+#SecondHoundStar {
+    left: 4462px;
+    top: 2450px;
+}
+#ThirdHoundStar {
+    left: 4386px;
+    top: 2371px; 
+}
+#FirstEelStar {
+    left: 5041px;
+    top: 2565px; 
+}
+#SecondEelStar {
+    left: 5059px;
+    top: 2461px; 
+}
+#ThirdEelStar {
+    left: 5200px;
+    top: 2529px; 
+}
+#FirstSchalesofUlcanaStar {
+    left: 5674px;
+    top: 2697px; 
+}
+#SecondSchalesofUlcanaStar {
+    left: 5674px;
+    top: 2498px; 
+}
+#ThirdSchalesofUlcanaStar {
+    left: 5531px;
+    top: 2503px; 
+}
+#FourthSchalesofUlcanaStar {
+    left: 5532px;
+    top: 2636px; 
+}
+#FifthSchalesofUlcanaStar {
+    left: 5807px;
+    top: 2537px;
+}
+#TiptheScales {
+    left: 5810px;
+    top: 2667px; 
+}
+
+#FirstRattoshStaffStar {
+    left: 4155px;
+    top: 2080px;  
+}
+#SecondRattoshStaffStar {
+    left: 4155px;
+    top: 1720px;  
+}
+/* #proba{
+    width: 360px;
+    height: 50px;
+    background-color: red;
+    top: 1900px;
+    left: 4155px;
+    position: absolute;
+    background-image: url('devotion_connectoroff.png');
+    transform: rotate(90deg);
+} */
+#ThirdRattoshStaffStar {
+    left: 4229px;
+    top: 1660px;  
+}
+#FourthRattoshStaffStar {
+    left: 4200px;
+    top: 1520px;  
+}
+#FifthRattoshStaffStar {
+    left: 4080px;
+    top: 1660px;  
+}
+#SixthRattoshStaffStar {
+    left: 4113px;
+    top: 1520px;  
+}
+#ArcaneBomb {
+    left: 3927px;
+    top: 1700px;    
+}
+#FifthWidowStar {
+    left: 3851px;
+    top: 1680px;    
+}
+#FourthWidowStar {
+    left: 3763px;
+    top: 1728px;     
+}
+#ThirdWidowStar {
+    left: 3758px;
+    top: 1813px;      
+}
+#SecondWidowStar {
+    left: 3875px;
+    top: 1850px;       
+}
+#FirstWidowStar {
+    left: 3741px;
+    top: 1866px;       
+}
+#FirstKrakenStar {
+    left: 3381px;
+    top: 1750px;       
+}
+#FifthKrakenStar {
+    left: 3430px;
+    top: 1960px;        
+}
+#FourthKrakenStar {
+    left: 3312px;
+    top: 1968px;       
+}
+#ThirdKrakenStar {
+    left: 3199px;
+    top: 1972px;       
+}
+#SecondKrakenStar {
+    left: 3165px;
+    top: 1868px;      
+}
+#FirstSpearofTheHeavensStar {
+    left: 2693px;
+    top: 1238px;       
+}
+#SecondSpearofTheHeavensStar {
+    left: 2550px;
+    top: 1442px;      
+}
+#ThirdSpearofTheHeavensStar {
+    left: 2450px;
+    top: 1586px;      
+}
+#FourthSpearofTheHeavensStar {
+    left: 2445px;
+    top: 1685px;      
+}
+#FifthSpearofTheHeavensStar {
+    left: 2310px;
+    top: 1792px;      
+}
+#SpearofTheHeavens {
+    left: 2363px;
+    top: 1625px;      
+}
+#FirstAeonsHourglassStar {
+    left: 1940px;
+    top: 1412px;     
+}
+#SecondAeonsHourglassStar {
+    left: 2110px;
+    top: 1412px;      
+}
+#ThirdAeonsHourglassStar {
+    left: 2060px;
+    top: 1607px;      
+}
+#FourthAeonsHourglassStar {
+    left: 2110px;
+    top: 1790px;      
+}
+#FifthAeonsHourglassStar {
+    left: 1940px;
+    top: 1790px;      
+}
+#TimeDilation {
+    left: 2010px;
+    top: 1607px;      
+}
+#FirstMessengerofWarStar {
+    left: 1749px;
+    top: 2370px;       
+}
+#SecondMessengerofWarStar {
+    left: 1813px;
+    top: 2270px;      
+}
+#FifthMessengerofWarStar {
+    left: 1893px;
+    top: 2170px;      
+}
+#ThirdMessengerofWarStar {
+    left: 1930px;
+    top: 2280px;      
+}
+#FourthMessengerofWarStar {
+    left: 1900px;
+    top: 2394px;      
+}
+#MessengerofWar {
+    left: 1993px;
+    top: 1986px;      
+}
+#FirstTempestStar {
+    left: 2791px; 
+    top: 2008px;      
+}
+#SecondTempestStar {
+    left: 2731px;
+    top: 2104px;      
+}
+#ThirdTempestStar {
+    left: 2631px;
+    top: 2114px;      
+}
+#FourthTempestStar {
+    left: 2600px;
+    top: 2192px;      
+}
+#FifthTempestStar {
+    left: 2443px;
+    top: 2228px;      
+}
+#SixthTempestStar {
+    left: 2599px;
+    top: 2312px;      
+}
+#RecklessTempest {
+    left: 2477px;
+    top: 2358px;      
+}
+#FirstWraithStar {
+    left: 3095px;
+    top: 2370px;      
+}
+#ThirdWraithStar {
+    left: 3080px;
+    top: 2274px;      
+}
+#SecondWraithStar {
+    left: 3126px;
+    top: 2170px;      
+}
+#FourthWraithStar {
+    left: 2991px;
+    top: 2200px;      
+}
+#FirstViperStar {
+    left: 3135px;
+    top: 2670px;       
+}
+#SecondViperStar {
+    left: 3331px;
+    top: 2730px;      
+}
+#ThirdViperStar {
+    left: 3235px;
+    top: 2624px;     
+}
+#FourthViperStar {
+    left: 3317px;
+    top: 2562px;      
+}
+#FirstLizardStar {
+    left: 3530px;
+    top: 2634px;      
+}
+#SecondLizardStar {
+    left: 3473px;
+    top: 2514px;      
+}
+#ThirdLizardStar {
+    left: 3467px;
+    top: 2384px;      
+}
+#FirstGallowsStar {
+    left: 3673px;
+    top: 2488px;      
+}
+#SecondGallowsStar {
+    left: 3681px;
+    top: 2175px;      
+}
+#ThirdGallowsStar {
+    left: 3785px;
+    top: 2166px;      
+}
+#FourthGallowsStar {
+    left: 3785px;
+    top: 2300px;      
+}
+#FirstScarabStar {
+    left: 3981px;
+    top: 2430px;      
+}
+#SecondScarabStar {
+    left: 4069px;
+    top: 2338px;      
+}
+#ThirdScarabStar {
+    left: 4179px;
+    top: 2329px;      
+}
+#FourthScarabStar {
+    left: 4250px;
+    top: 2428px;      
+}
+#FirstStagStar {
+    left: 4370px;
+    top: 2270px;      
+}
+#SecondStagStar {
+    left: 4435px;
+    top: 2104px;      
+}
+#ThirdStagStar {
+    left: 4523px;
+    top: 2100px;      
+}
+#FourthStagStar {
+    left: 4550px;
+    top: 2270px;      
+}
+#FourthLotusStar {
+    left: 4859px;
+    top: 2004px;      
+}
+#ThirdLotusStar {
+    left: 4999px;
+    top: 2024px;      
+}
+#SecondLotusStar {
+    left: 5137px;
+    top: 2004px;      
+}
+#FirstLotusStar {
+    left: 4995px;
+    top: 2144px;      
+}
+#FirstSolemnWatcherStar {
+    left: 5408px;
+    top: 2288px;      
+}
+#SecondSolemnWatcherStar {
+    left: 5342px;
+    top: 2248px;      
+}
+#ThirdSolemnWatcherStar {
+    left: 5405px;
+    top: 2116px;      
+}
+#FourthSolemnWatcherStar {
+    left: 5405px;
+    top: 2040px;      
+}
+#FifthSolemnWatcherStar {
+    left: 5405px;
+    top: 1930px;     
+}
+#FirstShieldmaidenStar {
+    left: 5910px;
+    top: 2100px;     
+}
+#SecondShieldmaidenStar {
+    left: 5910px;
+    top: 2252px;      
+}
+#ThirdShieldmaidenStar {
+    left: 5845px;
+    top: 2150px;     
+}
+#FifthShieldmaidenStar {
+    left: 5977px;
+    top: 2150px;     
+}
+#SixthShieldmaidenStar {
+    left: 5973px;
+    top: 1980px;     
+}
+#FourthShieldmaidenStar {
+    left: 5845px;
+    top: 1980px;     
+}
+#SixthObeliskofMenhirStar {
+    left: 6408px;
+    top: 2145px;      
+}
+#FifthObeliskofMenhirStar {
+    left: 6432px;
+    top: 2277px;    
+}
+#FirstObeliskofMenhirStar {
+    left: 6316px;
+    top: 2295px;    
+}
+#SecondObeliskofMenhirStar {
+    left: 6220px;
+    top: 2272px;     
+}
+#ThirdObeliskofMenhirStar {
+    left: 6236px;
+    top: 2079px;     
+}
+#FourthObeliskofMenhirStar {
+    left: 6313px;
+    top: 1841px;     
+}
+#StoneForm {
+    left: 6388px;
+    top: 2038px;       
+}
+#FirstAzraakatheEternalSandsStar {
+    left: 6421px;
+    top: 3026px;        
+}
+#SecondAzraakatheEternalSandsStar {
+    left: 6326px;
+    top: 2861px;       
+}
+#ThirdAzraakatheEternalSandsStar {
+    left: 6380px;
+    top: 2722px;       
+}
+#FourthAzraakatheEternalSandsStar {
+    left: 6378px;
+    top: 2528px;       
+}
+#FifthAzraakatheEternalSandsStar {
+    left: 6257px;
+    top: 2673px;       
+}
+#ShiftingSands {
+    left: 6255px;
+    top: 2792px;       
+}
+#FirstBardsHarpStar {
+    left: 5913px;
+    top: 3291px;        
+}
+#SecondBardsHarpStar {
+    left: 5941px;
+    top: 3133px;      
+}
+#ThirdBardsHarpStar {
+    left: 5963px;
+    top: 2975px;      
+}
+#FourthBardsHarpStar {
+    left: 5905px;
+    top: 2996px;       
+}
+#FifthBardsHarpStar {
+    left: 5833px;
+    top: 2903px;       
+}
+#Inspiration {
+    left: 5821px;
+    top: 3124px;       
+}
+#Inspiration {
+    left: 5821px;
+    top: 3124px;       
+}
+#FirstBladesofNadaanStar {
+    left: 5581px;
+    top: 2822px;        
+}
+#SecondBladesofNadaanStar {
+    left: 5579px;
+    top: 3025px;       
+}
+#ThirdBladesofNadaanStar {
+    left: 5658px;
+    top: 2930px;       
+}
+#FourthBladesofNadaanStar {
+    left: 5503px;
+    top: 2929px;       
+}
+#FifthBladesofNadaanStar {
+    left: 5493px;
+    top: 3111px;       
+}
+#SixthBladesofNadaanStar {
+    left: 5673px;
+    top: 3110px;       
+}
+#FirstAssassinStar {
+    left: 5151px;
+    top: 3234px;       
+}
+#SecondAssassinStar {
+    left: 5256px;
+    top: 3080px;       
+}
+#ThirdAssassinStar {
+    left: 5350px;
+    top: 3024px;       
+}
+#FourthAssassinStar {
+    left: 5236px;
+    top: 2979px;       
+}
+#FifthAssassinStar {
+    left: 5140px;
+    top: 3051px;       
+}
+#SixthAssassinStar {
+    left: 5310px;
+    top: 2947px;       
+}
+#AssassinMark {
+      
+    left: 5007px;
+    top: 3281px;     
+}
+#FirstDryadStar {
+    left: 5079px;
+    top: 2819px;       
+}
+#SecondDryadStar {
+    left: 5153px;
+    top: 2746px;       
+}
+#ThirdDryadStar {
+    left: 5240px;
+    top: 2798px;       
+}
+#FourthDryadStar {
+    left: 5246px;
+    top: 2699px;       
+}
+#DryadsBlessing {
+    left: 5330px;
+    top: 2775px;           
+}
+#FirstBullStar {
+    left: 4602px;
+    top: 2817px;            
+}
+#SecondBullStar {
+    left: 4671px;
+    top: 2715px;           
+}
+#ThirdBullStar {
+    left: 4820px;
+    top: 2709px;           
+}
+#FourthBullStar {
+    left: 4750px;
+    top: 2845px;           
+}
+#BullRush {
+    left: 4925px;
+    top: 2748px;           
+}
+#FirstSailorsGuideStar {
+    left: 4147px;
+    top: 2729px;           
+}
+#SecondSailorsGuideStar {
+    left: 4157px;
+    top: 2671px;           
+}
+#ThirdSailorsGuideStar {
+    left: 4286px;
+    top: 2736px;          
+}
+#FourthSailorsGuideStar {
+    left: 4244px;
+    top: 2634px;           
+}
+#FirstTsunamiStar {
+    left: 3942px;
+    top: 2762px;           
+}
+#SecondTsunamiStar {
+    left: 3863px;
+    top: 2731px;           
+}
+#ThirdTsunamiStar {
+    left: 3784px;
+    top: 2661px;           
+}
+#FourthTsunamiStar {
+    left: 3717px;
+    top: 2682px;           
+}
+#Tsunami {
+    left: 3755px;
+    top: 2743px;           
+}
+#FirstJackalStar {
+    left: 2761px;
+    top: 2494px;           
+}
+#SecondJackalStar {
+    left: 2843px;
+    top: 2667px;           
+}
+#ThirdJackalStar {
+    left: 2991px;
+    top: 2722px;           
+}
+#FirstVultureStar {
+    left: 2314px;
+    top: 2720px;           
+}
+#SecondVultureStar {
+    left: 2401px;
+    top: 2682px;           
+}
+#ThirdVultureStar {
+    left: 2278px;
+    top: 2570px;           
+}
+#FifthVultureStar {
+    left: 2397px;
+    top: 2794px;           
+}
+#FourthVultureStar {
+    left: 2509px;
+    top: 2580px;           
+}
+#FirstChariotofTheDeadStar {
+    left: 1954px;
+    top: 2755px;           
+}
+#SecondChariotofTheDeadStar {
+    left: 1858px;
+    top: 2668px;           
+}
+#ThirdChariotofTheDeadStar {
+    left: 1914px;
+    top: 2634px;          
+}
+#FourthChariotofTheDeadStar {
+    left: 1849px;
+    top: 2592px;
+               
+}
+#FifthChariotofTheDeadStar {
+    left: 1788px;
+    top: 2646px;           
+}
+#SixthChariotofTheDeadStar {
+    left: 1529px;
+    top: 2646px;           
+}
+#WaywardSoul {
+    left: 1423px;
+    top: 2611px;           
+}
+#FirstRevenantStar {
+    left: 1521px;
+    top: 2458px;
+}
+#SecondRevenantStar {
+    left: 1455px;
+    top: 2286px;           
+}
+#ThirdRevenantStar {
+    left: 1429px;
+    top: 2163px;          
+}
+#FourthRevenantStar {
+    left: 1358px;
+    top: 2091px;           
+}
+#FifthRevenantStar {
+    left: 1348px;
+    top: 2258px;           
+}
+#RaisetheDead {
+    left: 1303px;
+    top: 2155px;           
+}
+#FirstDyingGodStar {
+    left: 521px;
+    top: 2452px;           
+}
+#SecondDyingGodStar {
+    left: 696px;
+    top: 2491px;           
+}
+#ThirdDyingGodStar {
+    left: 610px;
+    top: 2331px;           
+}
+#FourthDyingGodStar {
+    left: 716px;
+    top: 2279px;           
+}
+#FifthDyingGodStar {
+    left: 817px;
+    top: 2317px;           
+}
+#SixthDyingGodStar {
+    left: 846px;
+    top: 2486px;           
+}
+#HungeringVoid {
+    left: 883px;
+    top: 2393px;           
+}
+#FirstYugolTheInsatiableNightStar {
+    left: 504px;
+    top: 3375px;          
+}
+#SecondYugolTheInsatiableNightStar {
+    left: 569px;
+    top: 3173px;           
+}
+#ThirdYugolTheInsatiableNightStar {
+    left: 730px;
+    top: 3151px;           
+}
+#FourthYugolTheInsatiableNightStar {
+    left: 1046px;
+top: 3013px;           
+}
+#FifthYugolTheInsatiableNightStar {
+    left: 782px;
+    top: 2777px;           
+}
+#BlackBloodofYugol {
+    left: 593px;
+    top: 2745px;           
+}
+#FirstWendigoStar {
+    left: 1623px;
+    top: 3242px;           
+}
+#SecondWendigoStar {
+    left: 1658px;
+    top: 3132px;           
+}
+#ThirdWendigoStar {
+    left: 1801px;
+    top: 3191px;           
+}
+#FourthWendigoStar {
+    left: 1781px;
+    top: 3082px;           
+}
+#FifthWendigoStar {
+    left: 1724px;
+    top: 3025px;           
+}
+#WendigosMark {
+    left: 1651px;
+    top: 3041px;           
+}
+#FirstMantisStar {
+    left: 2352px;
+    top: 3091px;           
+}
+#SecondMantisStar {
+    left: 2145px;
+    top: 2929px;           
+}
+#ThirdMantisStar {
+    left: 2165px;
+    top: 3021px;           
+}
+#FourthMantisStar {
+    left: 2093px;
+    top: 2991px;           
+}
+#FirstFiendStar {
+    left: 2608px;
+    top: 3153px;           
+}
+#SecondFiendStar {
+    left: 2574px;
+    top: 3008px;           
+}
+#ThirdFiendStar {
+    left: 2656px;
+    top: 2900px;           
+}
+#FourthFiendStar {
+    left: 2671px;
+    top: 2994px;           
+}
+#FlameTorrent {
+    left: 2783px;
+    top: 2978px;           
+}
+#FirstWretchStar {
+    left: 3090px;
+    top: 3214px;          
+}
+#SecondWretchStar {
+    left: 2972px;
+    top: 3186px;           
+}
+#ThirdWretchStar {
+    left: 3055px;
+    top: 3089px;           
+}
+#FourthWretchStar {
+    left: 3076px;
+    top: 2896px;           
+}
+#FirstImpStar {
+    left: 3590px;
+    top: 2916px;           
+}
+#SecondImpStar {
+    left: 3620px;
+    top: 2980px;           
+}
+#ThirdImpStar {
+    left: 3548px;
+    top: 3023px;           
+}
+#FourthImpStar {
+    left: 3489px;
+    top: 2955px;           
+}
+#Aetherfire {
+    left: 3422px;
+    top: 2885px;           
+}
+#CrossroadsOfAscendant {
+    left: 3911px;
+    top: 3141px;           
+}
+#CrossroadsOfEldritch {
+    left: 3768px;
+    top: 3139px;           
+}
+#CrossroadsOfChaos {
+    left: 3721px;
+    top: 3004px;           
+}
+#CrossroadsOfOrder {
+    left: 3954px;
+    top: 3004px;           
+}
+#CrossroadsOfPrimordial {
+    left: 3841px;
+    top: 2917px;           
+}
+#FirstTortoiseStar {
+    left: 4194px;
+    top: 3046px;           
+}
+#SecondTortoiseStar {
+    left: 4260px;
+    top: 2973px;           
+}
+#ThirdTortoiseStar {
+    left: 4380px;
+    top: 2968px;           
+}
+#FourthTortoiseStar {
+    left: 4440px;
+    top: 3080px;           
+}
+#TurtleShell {
+    left: 4475px;
+    top: 2954px;           
+}
+#FirstLionStar {
+    left: 4627px;
+    top: 3138px;           
+}
+#SecondLionStar {
+    left: 4733px;
+    top: 2980px;           
+}
+#ThirdLionStar {
+    left: 4833px;
+    top: 3138px;           
+}
+#FirstAssasinsbladeStar {
+    left: 4931px;
+    top: 3008px;           
+}
+#SecondAssasinsbladeStar {
+    left: 4995px;
+    top: 3008px;           
+}
+#ThirdAssasinsbladeStar {
+    left: 4958px;
+    top: 3091px;           
+}
+#FourthAssasinsbladeStar {
+    left: 4948px;
+    top: 3200px;           
+}
+#BladesofWrath {
+    left: 5275px;
+    top: 2905px;           
+}
+#FirstUnknownSoldierStar {
+    left: 5959px;
+    top: 3513px;          
+}
+#SecondUnknownSoldierStar {
+    left: 5958px;
+    top: 3620px;           
+}
+#ThirdUnknownSoldierStar {
+    left: 5848px;
+    top: 3671px;           
+}
+#FourthUnknownSoldierStar {
+    left: 6088px;
+    top: 3652px;           
+}
+#FifthUnknownSoldierStar {
+    left: 5970px;
+    top: 3794px;           
+}
+#SixthUnknownSoldierStar {
+    left: 5970px;
+    top: 3918px;           
+}
+#UnknownSoldier {
+    left: 5970px;
+    top: 4152px;           
+}
+#ThirdTargotheBuilderStar {
+    left: 5389px;
+    top: 3764px;           
+}
+#SecondTargotheBuilderStar {
+    left: 5459px;
+    top: 3681px;           
+}
+#FirstTargotheBuilderStar {
+    left: 5521px;
+    top: 3772px;           
+}
+#FourthTargotheBuilderStar {
+    left: 5492px;
+    top: 3586px;           
+}
+#SixthTargotheBuilderStar {
+    left: 5402px;
+    top: 3493px;           
+}
+#ShieldWall {
+    left: 5461px;
+    top: 3441px;           
+}
+
+#FifthTargotheBuilderStar {
+    left: 5577px;
+    top: 3693px;           
+}
+#FirstHammerStar {
+    left: 5159px;
+    top: 3435px;           
+}
+#SecondHammerStar {
+    left: 4878px;
+    top: 3432px;           
+}
+#ThirdHammerStar {
+    left: 4879px;
+    top: 3502px;           
+}
+#FirstAnvilStar {
+    left: 4913px;
+    top: 3713px;           
+}
+#SecondAnvilStar {
+    left: 5033px;
+    top: 3713px;           
+}
+#ThirdAnvilStar {
+    left: 4975px;
+    top: 3654px;           
+}
+#FourthAnvilStar {
+    left: 5114px;
+    top: 3595px;           
+}
+#TargosHammer {
+    left: 4863px;
+    top: 3599px;           
+}
+#FirstCraneStar {
+    left: 4580px;
+    top: 3601px;           
+}
+#SecondCraneStar {
+    left: 4566px;
+    top: 3452px;           
+}
+#ThirdCraneStar {
+    left: 4649px;
+    top: 3398px;           
+}
+#FourthCraneStar {
+    left: 4637px;
+    top: 3325px;           
+}
+#FifthCraneStar {
+    left: 4692px;
+    top: 3328px;           
+}
+#FirstFalconStar {
+    left: 4224px;
+    top: 3326px;           
+}
+#SecondFalconStar {
+    left: 4112px;
+    top: 3237px;           
+}
+#ThirdFalconStar {
+    left: 4019px;
+    top: 3292px;           
+}
+#FourthFalconStar {
+    left: 3920px;
+    top: 3240px;           
+}
+#FalconSwoop {
+    left: 3806px;
+    top: 3334px;           
+}
+#FirstRatStar {
+    left: 3440px;
+    top: 3154px;           
+}
+#SecondRatStar {
+    left: 3472px;
+    top: 3275px;           
+}
+#ThirdRatStar {
+    left: 3561px;
+    top: 3364px;           
+}
+#FourthRatStar {
+    left: 3660px;
+    top: 3312px;           
+}
+#FirstBatStar {
+    left: 2892px;
+    top: 3427px;           
+}
+#SecondBatStar {
+    left: 2996px;
+    top: 3380px;           
+}
+#ThirdBatStar {
+    left: 3105px;
+    top: 3416px;           
+}
+#FourthBatStar {
+    left: 3202px;
+    top: 3374px;           
+}
+#TwinFangs {
+    left: 3292px;
+    top: 3421px;           
+}
+#FirstGhoulStar {
+    left: 2551px;
+    top: 3561px;           
+}
+#SecondGhoulStar {
+    left: 2605px;
+    top: 3458px;           
+}
+#ThirdGhoulStar {
+    left: 2684px;
+    top: 3588px;           
+}
+#FourthGhoulStar {
+    left: 2581px;
+    top: 3375px;           
+}
+#GhoulishHunger {
+    left: 2694px;
+    top: 3488px;           
+}
+#FirstSolaelsWitchbladeStar {
+    left: 2399px;
+    top: 3365px;           
+}
+#SecondSolaelsWitchbladeStar {
+    left: 2278px;
+    top: 3391px;           
+}
+#ThirdSolaelsWitchbladeStar {
+    left: 2187px;
+    top: 3374px;           
+}
+#FourthSolaelsWitchbladeStar {
+    left: 2136px;
+    top: 3436px;           
+}
+#EldritchFire {
+    left: 1998px;
+    top: 3444px;           
+}
+#FirstUlzuinsTorchStar {
+    left: 1327px;
+    top: 4175px;           
+}
+#SecondUlzuinsTorchStar {
+    left: 1328px;
+    top: 3969px;           
+}
+#ThirdUlzuinsTorchStar {
+    left: 1329px;
+    top: 3752px;           
+}
+#FifthUlzuinsTorchStar {
+    left: 1380px;
+    top: 3694px;           
+}
+#SixthUlzuinsTorchStar {
+    left: 1374px;
+    top: 3593px;           
+}
+#FourthUlzuinsTorchStar {
+    left: 1272px;
+    top: 3644px;           
+}
+#MeteorShower {
+    left: 1310px;
+    top: 3500px;           
+}
+#FirstHydraStar {
+    left: 2101px;
+    top: 3865px;           
+}
+#SecondHydraStar {
+    left: 1896px;
+    top: 3799px;           
+}
+#FourthHydraStar {
+    left: 1793px;
+    top: 3656px;           
+}
+#ThirdHydraStar {
+    left: 1898px;
+    top: 3606px;           
+}
+#FifthHydraStar {
+    left: 1807px;
+    top: 3766px;           
+}
+#SixthHydraStar {
+    left: 1691px;
+    top: 3816px;           
+}
+#SecondBerserkerStar {
+    left: 2498px;
+    top: 3870px;           
+}
+#FirstBerserkerStar {
+    left: 2499px;
+    top: 3767px;           
+}
+#ThirdBerserkerStar {
+    left: 2614px;
+    top: 3899px;           
+}
+#FourthBerserkerStar {
+    left: 2666px;
+    top: 3835px;           
+}
+#FifthBerserkerStar {
+    left: 2396px;
+    top: 3847px;           
+}
+#SixthBerserkerStar {
+    left: 2330px;
+    top: 3767px;           
+}
+#FirstSpiderStar {
+    left: 3166px;
+    top: 3667px;           
+}
+#SecondSpiderStar {
+    left: 3297px;
+    top: 3738px;           
+}
+#ThirdSpiderStar {
+    left: 3232px;
+    top: 3790px;           
+}
+#FourthSpiderStar {
+    left: 3105px;
+    top: 3792px;           
+}
+#FifthSpiderStar {
+    left: 3036px;
+    top: 3738px;           
+}
+#SecondRavenStar {
+    left: 3279px;
+    top: 3941px;           
+}
+#ThirdRavenStar {
+    left: 3125px;
+    top: 3962px;           
+}
+#FirstRavenStar {
+    left: 3090px;
+    top: 4043px;           
+}
+#FourthRavenStar {
+    left: 3192px;
+    top: 4057px;           
+}
+#FirstEyeOfTheGuardianStar {
+    left: 3533px;
+    top: 3754px;           
+}
+#SecondEyeOfTheGuardianStar {
+    left: 3654px;
+    top: 3688px;           
+}
+#ThirdEyeOfTheGuardianStar {
+    left: 3533px;
+    top: 3625px;           
+}
+#FourthEyeOfTheGuardianStar {
+    left: 3420px;
+    top: 3686px;           
+}
+#GuardiansGaze {
+    left: 3532px;
+    top: 3686px;           
+}
+#FirstBysmielsBondsStar {
+    left: 2879px;
+    top: 4340px;           
+}
+#SecondBysmielsBondsStar {
+    left: 2804px;
+    top: 4265px;           
+}
+#ThirdBysmielsBondsStar {
+    left: 2929px;
+    top: 4168px;           
+}
+#FourthBysmielsBondsStar {
+    left: 2894px;
+    top: 4103px;           
+}
+#BysmielsCommand {
+    left: 2840px;
+    top: 4123px;           
+}
+#FirstAkeronsScorpionStar {
+    left: 3816px;
+    top: 3594px;           
+}
+#SecondAkeronsScorpionStar {
+    left: 3869px;
+    top: 3652px;           
+}
+#ThirdAkeronsScorpionStar {
+    left: 3841px;
+    top: 3785px;           
+}
+#FourthAkeronsScorpionStar {
+    left: 3739px;
+    top: 3848px;           
+}
+#ScorpionSting {
+    left: 3894px;
+    top: 3855px;           
+}
+#FirstShepherdsCrookStar {
+    left: 4081px;
+    top: 3852px;           
+}
+#SecondShepherdsCrookStar {
+    left: 4084px;
+    top: 3622px;           
+}
+#ThirdShepherdsCrookStar {
+    left: 4110px;
+    top: 3548px;           
+}
+#FourthShepherdsCrookStar {
+    left: 4163px;
+    top: 3584px;           
+}
+#Shepherdscall {
+    left: 4151px;
+    top: 3651px;           
+}
+#FirstNighttalonStar {
+    left: 4303px;
+    top: 4109px;           
+}
+#SecondNighttalonStar {
+    left: 4410px;
+    top: 3958px;           
+}
+#ThirdNighttalonStar {
+    left: 4425px;
+    top: 4098px;           
+}
+#FourthNighttalonStar {
+    left: 4468px;
+    top: 3839px;           
+}
+#FirstHarpyStar {
+    left: 5024px;
+    top: 4048px;           
+}
+#SecondHarpyStar {
+    left: 5053px;
+    top: 3930px;           
+}
+#FourthHarpyStar {
+    left: 5106px;
+    top: 3859px;           
+}
+#ThirdHarpyStar {
+    left: 4956px;
+    top: 3851px;           
+}
+#FirstUlzaadHeraldofKorvakStar {
+    left: 5629px;
+    top: 4441px;           
+}
+#SecondUlzaadHeraldofKorvakStar {
+    left: 5506px;
+    top: 4010px;           
+}
+#ThirdUlzaadHeraldofKorvakStar {
+    left: 5627px;
+    top: 4191px;           
+}
+#FourthUlzaadHeraldofKorvakStar {
+    left: 5429px;
+    top: 4399px;           
+}
+#FifthUlzaadHeraldofKorvakStar {
+    left: 5344px;
+    top: 3981px;           
+}
+#UlzaadsDecree {
+    left: 5253px;
+    top: 3924px;           
+}
+#FirstToadStar {
+    left: 4975px;
+    top: 4331px;           
+}
+#SecondToadStar {
+    left: 5053px;
+    top: 4237px;           
+}
+#ThirdToadStar {
+    left: 5169px;
+    top: 4223px;           
+}
+#FourthToadStar {
+    left: 5179px;
+    top: 4319px;           
+}
+#FirstOwlStar {
+    left: 4728px;
+    top: 4288px;           
+}
+#SecondOwlStar {
+    left: 4767px;
+    top: 4371px;           
+}
+#ThirdOwlStar {
+    left: 4725px;
+    top: 4469px;           
+}
+#FourthOwlStar {
+    left: 4799px;
+    top: 4481px;           
+}
+#FirstHawkStar {
+    left: 4083px;
+    top: 4235px;           
+}
+#SecondHawkStar {
+    left: 4196px;
+    top: 4283px;           
+}
+#ThirdHawkStar {
+    left: 4284px;
+    top: 4217px;           
+}
+#FirstScholarsLightStar {
+    left: 3804px;
+    top: 4445px;           
+}
+#SecondScholarsLightStar {
+    left: 3807px;
+    top: 4285px;           
+}
+#ThirdScholarsLightStar {
+    left: 3807px;
+    top: 4069px;           
+}
+#FirstQuillStar {
+    left: 3467px;
+    top: 4468px;           
+}
+#SecondQuillStar {
+    left: 3467px;
+    top: 4338px;           
+}
+#ThirdQuillStar {
+    left: 3526px;
+    top: 4211px;           
+}
+#FourthQuillStar {
+    left: 3597px;
+    top: 4073px;           
+}
+#FirstFoxStar {
+    left: 3060px;
+    top: 4377px;           
+}
+#SecondFoxStar {
+    left: 3152px;
+    top: 4270px;          
+}
+#ThirdFoxStar {
+    left: 3271px;
+    top: 4269px;          
+}
+#FourthFoxStar {
+    left: 3274px;
+    top: 4365px;           
+}
+#FirstMagiStar {
+    left: 2686px;
+    top: 4735px;           
+}
+#SecondMagiStar {
+    left: 2595px;
+    top: 4521px;           
+}
+#ThirdMagiStar {
+    left: 2611px;
+    top: 4418px;           
+}
+#FourthMagiStar {
+    left: 2649px;
+    top: 4356px;           
+}
+#FifthMagiStar {
+    left: 2694px;
+    top: 4553px;           
+}
+#SixthMagiStar {
+    left: 2550px;
+    top: 4362px;          
+}
+#Fissure {
+    left: 2540px;
+    top: 4204px;           
+}
+#FirstHyrianGuardianoftheCelestialGatesStar {
+    left: 1805px;
+    top: 4441px;           
+}
+#SecondHyrianGuardianoftheCelestialGatesStar {
+    left: 1905px;
+    top: 4423px;           
+}
+#ThirdHyrianGuardianoftheCelestialGatesStar {
+    left: 2006px;
+    top: 4409px;           
+}
+#FourthHyrianGuardianoftheCelestialGatesStar {
+    left: 2070px;
+    top: 4265px;           
+}
+#FifthHyrianGuardianoftheCelestialGatesStar {
+    left: 1898px;
+    top: 4342px;           
+}
+#HyriansGlare {
+    left: 1800px;
+    top: 4177px;           
+}
+#FirstAbominationStar {
+    left: 1227px;
+    top: 4872px;           
+}
+#SecondAbominationStar {
+    left: 1187px;
+    top: 4707px;           
+}
+#ThirdAbominationStar {
+    left: 1215px;
+    top: 4503px;           
+}
+#FourthAbominationStar {
+    left: 1363px;
+    top: 4702px;           
+}
+#FifthAbominationStar {
+    left: 1086px;
+    top: 4609px;           
+}
+#SixthAbominationStar {
+    left: 1087px;
+    top: 4825px;           
+}
+#AbominableMight {
+    left: 1360px;
+    top: 4857px;           
+}
+#TaintedEruption {
+    left: 1094px;
+    top: 4986px;           
+}
+#FirstBehemothStar {
+    left: 1641px;
+    top: 4807px;           
+}
+#SecondBehemothStar {
+    left: 1695px;
+    top: 4836px;           
+}
+#ThirdBehemothStar {
+    left: 1827px;
+    top: 5016px;           
+}
+#FourthBehemothStar {
+    left: 1813px;
+    top: 5198px;           
+}
+#FifthBehemothStar {
+    left: 1628px;
+    top: 5189px;           
+}
+#Giantsblood {
+    left: 1567px;
+    top: 4905px;          
+}
+#FirstOklainesLanternStar {
+    left: 2109px;
+    top: 4718px;          
+}
+#SecondOklainesLanternStar {
+    left: 2056px;
+    top: 4813px;          
+}
+#ThirdOklainesLanternStar {
+    left: 2066px;
+    top: 5001px;          
+}
+#FourthOklainesLanternStar {
+    left: 2149px;
+    top: 5001px;          
+}
+#FifthOklainesLanternStar {
+    left: 2161px;
+    top: 4814px;          
+}
+#FirstMurmurMistressofRumorsStar {
+    left: 2993px;
+    top: 4808px;          
+}
+#SecondMurmurMistressofRumorsStar {
+    left: 3041px;
+    top: 4989px;          
+}
+#ThirdMurmurMistressofRumorsStar {
+    left: 3082px;
+    top: 4881px;          
+}
+#FifthMurmurMistressofRumorsStar {
+    left: 3219px;
+    top: 4636px;          
+}
+#FourthMurmurMistressofRumorsStar {
+    left: 3053px;
+    top: 4635px;          
+}
+#Rumor {
+    left: 3138px;
+    top: 4761px;          
+}
+#FirstManticoreStar {
+    left: 3558px;
+    top: 4917px;          
+}
+#SecondManticoreStar {
+    left: 3578px;
+    top: 4826px;          
+}
+#ThirdManticoreStar {
+    left: 3770px;
+    top: 4785px;          
+}
+#FourthManticoreStar {
+    left: 3764px;
+    top: 4900px;          
+}
+#FifthManticoreStar {
+    left: 3881px;
+    top: 4696px;          
+}
+#AcidSpray {
+    left: 3841px;
+    top: 4561px;          
+}
+#FirstHarvestmansScytheStar {
+    left: 4227px;
+    top: 4812px;          
+}
+#SecondHarvestmansScytheStar {
+    left: 4165px;
+    top: 4681px;          
+}
+#ThirdHarvestmansScytheStar {
+    left: 4178px;
+    top: 4585px;          
+}
+#FourthHarvestmansScytheStar {
+    left: 4130px;
+    top: 4522px;          
+}
+#FifthHarvestmansScytheStar {
+    left: 4040px;
+    top: 4518px;          
+}
+#SixthHarvestmansScytheStar {
+    left: 3967px;
+    top: 4592px;          
+}
+#FirstEmptyThroneStar {
+    left: 4446px;
+    top: 4491px;          
+}
+#SecondEmptyThroneStar {
+    left: 4448px;
+    top: 4664px;          
+}
+#ThirdEmptyThroneStar {
+    left: 4510px;
+    top: 4606px;          
+}
+#FourthEmptyThroneStar {
+    left: 4386px;
+    top: 4607px;          
+}
+#FirstRhowansCrownStar {
+    left: 4592px;
+    top: 4701px;          
+}
+#SecondRhowansCrownStar {
+    
+    left: 4725px;
+    top: 4770px;           
+}
+#ElementalStorm {
+    left: 4667px;
+    top: 4687px;          
+}
+#ThirdRhowansCrownStar {
+    left: 4614px;
+    top: 4772px;          
+}
+#FourthRhowansCrownStar {
+    left: 4742px;
+    top: 4702px;          
+}
+#FirstWolverineStar {
+    left: 4636px;
+    top: 5019px;          
+}
+#SecondWolverineStar {
+    left: 4639px;
+    top: 4956px;          
+}
+#ThirdWolverineStar {
+    left: 4742px;
+    top: 4911px;          
+}
+#FourthWolverineStar {
+    left: 4725px;
+    top: 5033px;          
+}
+#FifthWolverineStar {
+    left: 4825px;
+    top: 4932px;          
+}
+#FirstTyphosTheJailorofSoulsStar {
+    left: 5009px;
+    top: 4939px;         
+}
+#SecondTyphosTheJailorofSoulsStar {
+    left: 5097px;
+    top: 4713px;          
+}
+#ThirdTyphosTheJailorofSoulsStar {
+    left: 5119px;
+    top: 4634px;          
+}
+#FourthTyphosTheJailorofSoulsStar {
+    left: 5198px;
+    top: 4696px;          
+}
+#FifthTyphosTheJailorofSoulsStar {
+    left: 5039px;
+    top: 4618px;          
+}
+#SixthTyphosTheJailorofSoulsStar {
+    left: 4988px;
+    top: 4726px;          
+}
+#FirstRhowansScepterStar {
+    left: 5742px;
+    top: 5001px;          
+}
+#SecondRhowansScepterStar {
+    left: 5580px;
+    top: 4762px;          
+}
+#ThirdRhowansScepterStar {
+    left: 5591px;
+    top: 4652px;          
+}
+#FifthRhowansScepterStar {
+    
+    left: 5468px;
+    top: 4662px;          
+}
+#FourthRhowansScepterStar {
+    left: 5468px;
+    top: 4733px;          
+}
+#SixthRhowansScepterStar {
+    left: 5516px;
+    top: 4626px;          
+}
+#FirstOleronStar {
+    left: 5717px;
+    top: 5493px;          
+}
+#SecondOleronStar {
+    left: 5921px;
+    top: 5587px;          
+}
+#ThirdOleronStar {
+    left: 5874px;
+    top: 5371px;          
+}
+#FourthOleronStar {
+    left: 5934px;
+    top: 5252px;          
+}
+#FifthOleronStar {
+    left: 6060px;
+    top: 5179px;          
+}
+#SixthOleronStar {
+    left: 5682px;
+    top: 5297px;          
+}
+#BlindFury {
+    left: 6111px;
+    top: 5473px;          
+}
+#FirstAutumnBoarStar {
+    left: 5353px;
+    top: 5387px;          
+}
+
+#SecondAutumnBoarStar {
+    left: 5344px;
+    top: 5252px;          
+}
+#ThirdAutumnBoarStar {
+    left: 5222px;
+    top: 5198px;          
+}
+#FourthAutumnBoarStar {
+    left: 5238px;
+    top: 5405px;          
+}
+#FifthAutumnBoarStar {
+    left: 5155px;
+    top: 5124px;          
+}
+#SixthAutumnBoarStar {
+    left: 5070px;
+    top: 5094px;          
+}
+#Trample {
+    left: 5076px;
+    top: 5180px;          
+}
+#FirstCrabStar {
+    
+    left: 4809px;
+    top: 5285px;          
+}
+#SecondCrabStar {
+    left: 4899px;
+    top: 5245px;          
+}
+#ArcaneBarrier {
+    left: 4711px;
+    top: 5217px;          
+}
+#ThirdCrabStar {
+    
+    left: 4600px;
+    top: 5358px;          
+}
+#FourthCrabStar {
+    left: 4755px;
+    top: 5389px;         
+}
+#FirstHuntressStar {
+    left: 4363px;
+    top: 5378px;          
+}
+#SecondHuntressStar {
+    left: 4220px;
+    top: 5343px;          
+}
+#ThirdHuntressStar {
+    left: 4381px;
+    top: 5200px;         
+}
+#FourthHuntressStar {
+    left: 4318px;
+    top: 5136px;         
+}
+#FifthHuntressStar {
+    left: 4214px;
+    top: 5107px;          
+}
+#SixthHuntressStar {
+    left: 4208px;
+    top: 5289px;          
+}
+#Rend {
+    left: 4339px;
+    top: 5040px;          
+}
+#FirstMogdrogenTheWolfStar {
+    left: 3771px;
+    top: 5418px;          
+}
+#SecondMogdrogenTheWolfStar {
+    left: 3875px;
+    top: 5326px;          
+}
+#ThirdMogdrogenTheWolfStar {
+    left: 3905px;
+    top: 5183px;          
+}
+#FourthMogdrogenTheWolfStar {
+    left: 3958px;
+    top: 5015px;          
+}
+#FifthMogdrogenTheWolfStar {
+    left: 3793px;
+    top: 5059px;          
+}
+#HowlofMogdrogen {
+    left: 3635px;
+    top: 5103px;          
+}
+#FirstAfflictionStar {
+    left: 2904px;
+    top: 5468px;          
+}
+#SecondAfflictionStar {
+    left: 3055px;
+    top: 5487px;          
+}
+#FetidPool {
+    left: 3158px;
+    top: 5429px;          
+}
+#FourthAfflictionStar {
+    left: 3099px;
+    top: 5251px;          
+}
+#ThirdAfflictionStar {
+    left: 3101px;
+    top: 5369px;          
+}
+#FifthAfflictionStar {
+    left: 3224px;
+    top: 5369px;          
+}
+#SixthAfflictionStar {
+    left: 3233px;
+    top: 5247px;          
+}
+#FirstAlladrahsPhoenixStar {
+    left: 2564px;
+    top: 5606px;          
+}
+#SecondAlladrahsPhoenixStar {
+    left: 2518px;
+    top: 5487px;          
+}
+#ThirdAlladrahsPhoenixStar {
+    left: 2436px;
+    top: 5436px;          
+}
+#FourthAlladrahsPhoenixStar {
+    left: 2500px;
+    top: 5256px;          
+}
+#PhoenixFire {
+    left: 2375px;
+    top: 5104px;          
+}
+#FirstUltosShepherdofStorms {
+    left: 1639px;
+    top: 6107px;          
+}
+#SecondUltosShepherdofStormsStar {
+    left: 1643px;
+    top: 5957px;          
+}
+#ThirdUltosShepherdofStormsStar {
+    left: 1447px;
+    top: 5851px;          
+}
+#FourthUltosShepherdofStormsStar {
+    left: 1879px;
+    top: 6031px;         
+}
+#FifthUltosShepherdofStormsStar {
+    left: 1864px;
+    top: 5827px;          
+}
+#HandofUltos {
+    left: 1795px;
+    top: 5635px;          
+}
+#FirstBlindSageStar {
+    left: 2886px;
+    top: 6183px;          
+}
+#ElementalSeeker {
+    left: 3088px;
+    top: 5779px;          
+}
+#SecondBlindSageStar {
+    left: 3274px;
+    top: 6186px;         
+}
+#ThirdBlindSageStar {
+    left: 3090px;
+    top: 6079px;          
+}
+#FourthBlindSageStar {
+    left: 2982px;
+    top: 6060px;          
+}
+#FifthBlindSageStar {
+    left: 3199px;
+    top: 6055px;          
+}
+#SixthBlindSageStar {
+    left: 3088px;
+    top: 5920px;          
+}
+#FirstRattoshtheVeilwardenStar {
+    left: 3770px;
+    top: 6278px;          
+}
+#SecondRattoshtheVeilwardenStar {
+    left: 3747px;
+    top: 6103px;          
+}
+#ThirdRattoshtheVeilwardenStar {
+    left: 3727px;
+    top: 5967px;          
+}
+#FourthRattoshtheVeilwardenStar {
+    left: 3747px;
+    top: 5862px;          
+}
+#FifthRattoshtheVeilwardenStar {
+    left: 3596px;
+    top: 5868px;          
+}
+#WillofRattosh {
+    left: 3566px;
+    top: 5678px;          
+}
+#FirstAttakSeruTheMirageStar {
+    left: 4383px;
+    top: 6268px;         
+}
+#SecondAttakSeruTheMirageStar {
+    left: 4402px;
+    top: 6121px;          
+}
+#ThirdAttakSeruTheMirageStar {
+    left: 4400px;
+    top: 5952px;          
+}
+#FourthAttakSeruTheMirageStar {
+    left: 4376px;
+    top: 5820px;          
+}
+#FifthAttakSeruTheMirageStar {
+    left: 4227px;
+    top: 5947px;          
+}
+#ArcaneCurrents {
+    left: 4524px;
+    top: 5949px;          
+}
+#FirstLeviathanStar {
+    left: 4954px;
+    top: 6297px;          
+}
+#SecondLeviathanStar {
+    left: 5034px;
+    top: 6024px;          
+}
+#ThirdLeviathanStar {
+    left: 5253px;
+    top: 5942px;          
+}
+#FourthLeviathanStar {
+    left: 5377px;
+    top: 5849px;          
+}
+#SixthLeviathanStar {
+    left: 5389px;
+    top: 5685px;          
+}
+#FifthLeviathanStar {
+    left: 5570px;
+    top: 5810px;          
+}
+#Whirpool {
+    left: 5471px;
+    top: 5725px;          
+}
+#FifthTreeofLifeStar {
+    left: 4883px;
+    top: 750px;
+             
+}
+#FirstKorvakTheEldritchSunStar {
+    left: 4032px;
+    top: 817px;         
+}
+#SecondKorvakTheEldritchSunStar {
+    left: 4032px;
+    top: 569px;          
+}
+#ThirdKorvakTheEldritchSunStar {
+    left: 4032px;
+    top: 456px;          
+}
+#FourthKorvakTheEldritchSunStar {
+    left: 3902px;
+    top: 341px;          
+}
+#FifthKorvakTheEldritchSunStar {
+    left: 4161px;
+    top: 344px;          
+}
+#EyeOfKorvak {
+    left: 4032px;
+    top: 345px;         
+}
+
+
+
+
+#vire1{
+    width: 239.426px;
+    top: 731.5px;
+    left: 3422px;
+    transform: rotate(96.8361deg);
+}
+#vire2{
+    width: 250.81px;
+    top: 525.5px;
+    left: 3342px;
+    transform: rotate(45.3255deg);
+}
+#vire3{
+    width: 135px;
+    top: 410px;
+    left: 3380.5px;
+    transform: rotate(155.397deg);
+}
+#vire4{
+    width: 175.008px;
+    top: 513px;
+    left: 3257px;
+    transform: rotate(-63.3039deg);
+}
+#vire5{
+    width: 228.426px;
+    top: 702.5px;
+    left: 3181px;
+    transform: rotate(94.8361deg);
+}
+#tree1{
+    width: 159px;
+    left: 4714px;
+    top: 1120px;
+    transform: rotate(90deg);    
+}
+#tree2{
+    width: 228.206px;
+    top: 967px;
+    left: 4580px;
+    transform: rotate(30.1137deg);   
+}
+#tree3{
+    width: 122px;
+    top: 954px;
+    left: 4730px;
+    transform: rotate(90deg);   
+}
+#tree4{
+    width: 170.449px;
+    top: 839px;
+    left: 4770.5px;
+    transform: rotate(136.189deg);   
+}
+#tree5{
+    width: 179.067px;
+    top: 810px;
+    left: 4688.5px;
+    transform: rotate(79.3803deg);  
+}
+#ishtak1{
+    width: 190.83px;
+    top: 662px;
+    left: 5200px;
+    transform: rotate(-123.024deg);  
+}
+#ishtak2{
+    width: 162.726px;
+    top: 754px;
+    left: 5346px;
+    transform: rotate(-171.773deg);
+} 
+#ishtak3{
+    width: 184.954px;
+    top: 732px;
+    left: 5505px;
+    transform: rotate(158.429deg);
+} 
+#ishtak4{
+    width: 221.269px;
+    top: 674px;
+    left: 5470px;
+    transform: rotate(12.5288deg);
+}
+#ishtak5{
+    width: 124.064px;
+    top: 588px;
+    left: 5407px;
+    transform: rotate(91.8476deg);
+}
+#ulo1{
+    width: 162.086px;
+    top: 1468px;
+    left: 5185px;
+    transform: rotate(105.751deg);
+} 
+#ulo2{
+    width: 85.1469px;
+    top: 1357.5px;
+    left: 5210.5px;
+    transform: rotate(49.7636deg);
+} 
+#ulo3{
+    width: 76.6942px;
+    top: 1360.5px;
+    left: 5271.5px;
+    transform: rotate(129.71deg);
+}
+#ulo4{
+    width: 187.928px;
+    top: 1477px;
+    left: 5227.5px;
+    transform: rotate(-112.198deg);
+}
+#bear1{
+    width: 132.85px;
+    top: 1740px;
+    left: 4806.5px;
+    transform: rotate(64.5923deg);
+}
+#bear2{
+    width: 87.2009px;
+    top: 1645px;
+    left: 4774px;
+    transform: rotate(53.3929deg);
+} 
+#bear3{
+    width: 81.4923px;
+    top: 1590px;
+    left: 4725.5px;
+    transform: rotate(29.3961deg);
+} 
+#bear4{
+    width: 152.712px;
+    top: 1635px;
+    left: 4619.5px;
+    transform: rotate(-66.4566deg);
+}
+#bear5{
+    width: 74.6257px;
+    top: 1550px;
+    left: 4658.5px;
+    transform: rotate(32.4123deg);
+}
+#rstaff1{
+    width: 360px;
+    top: 1930px;
+    left: 4009.5px;
+    transform: rotate(90deg);
+}
+#rstaff2{
+    width: 95.268px;
+    top: 1720px;
+    left: 4178px;
+    transform: rotate(140.964deg);
+} 
+#rstaff3{
+    width: 142.972px;
+    top: 1620px;
+    left: 4175.5px;
+    transform: rotate(78.2971deg);
+} 
+#rstaff4{
+    width: 96.0469px;
+    top: 1720px;
+    left: 4100.5px;
+    transform: rotate(38.6598deg);;
+}
+#rstaff5{
+    width: 143.837px;
+    top: 1620px;
+    left: 4056.5px;
+    transform: rotate(103.263deg);
+}
+#widow1{
+    width: 134.952px;
+    top: 1893px;
+    left: 3770px;
+    transform: rotate(173.191deg);
+}
+#widow2{
+    width: 122.711px;
+    top: 1860.5px;
+    left: 3790.5px;
+    transform: rotate(17.549deg);
+} 
+#widow3{
+    width: 85.1469px;
+    top: 1795.5px;
+    left: 3753.5px;
+    transform: rotate(93.3665deg);
+} 
+#widow4{
+    width: 100.24px;
+    top: 1734px;
+    left: 3787px;
+    transform: rotate(151.39deg);
+}
+#widow5{
+    width: 78.5875px;
+    top: 1720px;
+    left: 3889px;
+    transform: rotate(-165.256deg);
+}
+#kraken1{
+    width: 246.13px;
+    top: 1839px;
+    left: 3185px;
+    transform: rotate(-28.6476deg);
+} 
+#kraken2{
+    width: 287.068px;
+    top: 1891px;
+    left: 3177px;
+    transform: rotate(-50.6544deg);
+} 
+#kraken3{
+    width: 228.659px;
+    top: 1885px;
+    left: 3263.5px;
+    transform: rotate(-72.4367deg);
+}
+#kraken4{
+    width: 215.641px;
+    top: 1880px;
+    left: 3327.5px;
+    transform: rotate(-103.134deg);
+}
+#spear1{
+    width: 249.128px;
+    top: 1370px;
+    left: 2530.5px;
+    transform: rotate(-54.9703deg);
+}
+#spear2{
+    width: 175.317px;
+    top: 1544px;
+    left: 2448px;
+    transform: rotate(-55.2222deg);
+} 
+#spear3{
+    width: 99.1262px;
+    top: 1665.5px;
+    left: 2432.5px;
+    transform: rotate(-87.1087deg);
+} 
+#spear4{
+    width: 172.261px;
+    top: 1770.5px;
+    left: 2320.5px;
+    transform: rotate(-38.4001deg);
+}
+#spear5{
+    width: 175.208px;
+    top: 1738.5px;
+    left: 2285.5px;
+    transform: rotate(107.608deg);
+}
+#time1{
+    width: 170px;
+    top: 1442px;
+    left: 1980px;
+    transform: rotate(180deg);
+}
+
+#time2{
+    width: 201.308px;
+    top: 1535.5px;
+    left: 2020px;
+    transform: rotate(-75.6186deg);
+} 
+#time3{
+    width: 189.708px;
+    top: 1730.5px;
+    left: 2025px;
+    transform: rotate(-105.282deg);
+} 
+#time4{
+    width: 170px;
+    top: 1820px;
+    left: 1980px;
+    transform: rotate(0deg);
+}
+#time5{
+    width: 195.931px;
+    top: 1730.5px;
+    left: 1910px;
+    transform: rotate(110.933deg);
+}
+#messenger1{
+    width: 118.727px;
+    top: 2350px;
+    left: 1754px;
+    transform: rotate(122.619deg);
+}
+
+#messenger2{
+    width: 117.427px;
+    top: 2307px;
+    left: 1846.5px;
+    transform: rotate(-175.115deg);
+} 
+#messenger3{
+    width: 117.881px;
+    top: 2367px;
+    left: 1890px;
+    transform: rotate(-75.2564deg);
+} 
+#messenger4{
+    width: 128.062px;
+    top: 2250px;
+    left: 1823px;
+    transform: rotate(128.66deg);
+}
+#messenger5{
+    width: 209.418px;
+    top: 2110px;
+    left: 1870px;
+    transform: rotate(118.523deg);
+}
+#revenant1{
+    width: 184.228px;
+    top: 2400px;
+    left: 1428px;
+    transform: rotate(69.0071deg);
+}
+
+#revenant2{
+    width: 125.718px;
+    top: 2254.5px;
+    left: 1412px;
+    transform: rotate(78.0644deg);
+} 
+#revenant3{
+    width: 101.119px;
+    top: 2157px;
+    left: 1374.5px;
+    transform: rotate(45.4007deg);
+} 
+#revenant4{
+    width: 167.299px;
+    top: 2210.5px;
+    left: 1302px;
+    transform: rotate(-86.5732deg);
+}
+#revenant5{
+    width: 112.401px;
+    top: 2236.5px;
+    left: 1300.5px;
+    transform: rotate(66.3998deg);
+}
+#dgod1{
+    width: 179.293px;
+    top: 2505.5px;
+    left: 551.5px;
+    transform: rotate(-167.437deg);
+}
+#dgod2{
+    width: 181.648px;
+    top: 2441px;
+    left: 595px;
+    transform: rotate(61.742deg);
+}
+
+#dgod3{
+    width: 118.068px;
+    top: 2340px;
+    left: 635px;
+    transform: rotate(153.869deg);
+} 
+#dgod4{
+    width: 107.912px;
+    top: 2325px;
+    left: 740.5px;
+    transform: rotate(-159.382deg);
+} 
+#dgod5{
+    width: 171.47px;
+    top: 2431.5px;
+    left: 775.5px;
+    transform: rotate(-99.737deg);
+}
+#dgod6{
+    width: 100.658px;
+    top: 2385px;
+    left: 830px;
+    transform: rotate(-130.972deg);
+}
+#tempest1{
+    width: 113.208px;
+    top: 2086px;
+    left: 2735px;
+    transform: rotate(-57.9946deg); 
+}
+#tempest2{
+    width: 100.499px;
+    top: 2138px;
+    left: 2665px;
+    transform: rotate(-5.71059deg); 
+}
+
+#tempest3{
+    width: 83.9345px;
+    top: 2183px;
+    left: 2605.5px;
+    transform: rotate(-68.3254deg);
+} 
+#tempest4{
+    width: 161.075px;
+    top: 2240px;
+    left: 2470.5px;
+    transform: rotate(-12.9146deg);
+} 
+#tempest5{
+    width: 120.004px;
+    top: 2282px;
+    left: 2573.5px;
+    transform: rotate(-89.5225deg);
+}
+#tempest6{
+    width: 130.384px;
+    top: 2365px;
+    left: 2508px;
+    transform: rotate(-20.6589deg);
+}
+#wraith1{
+    width: 202.388px;
+    top: 2300px;
+    left: 3042.5px;
+    transform: rotate(98.8107deg);
+}
+ 
+#wraith2{
+    width: 97.1648px;
+    top: 2352px;
+    left: 3071.5px;
+    transform: rotate(81.1193deg);
+}
+#wraith3{
+    width: 199.289px;
+    top: 2320px;
+    left: 2977px;
+    transform: rotate(58.5432deg);
+}
+#lizard1{
+    width: 132.85px;
+    top: 2604px;
+    left: 3470.5px;
+    transform: rotate(64.5923deg);
+}
+ 
+#lizard2{
+    width: 130.138px;
+    top: 2479px;
+    left: 3440px;
+    transform: rotate(87.3575deg);
+}
+#gallows1{
+    width: 313.102px;
+    top: 2361.5px;
+    left: 3554px;
+    transform: rotate(91.4641deg);
+}
+#gallows2{
+    width: 104.389px;
+    top: 2202.5px;
+    left: 3710px;
+    transform: rotate(175.054deg);
+}
+#gallows3{
+    width: 134px;
+    top: 2263px;
+    left: 3747px;
+    transform: rotate(-90deg);
+}
+#scarab1{
+    width: 127.311px;
+    top: 2415px;
+    left: 3990px;
+    transform: rotate(133.727deg);
+}
+#scarab2{
+    width: 110.368px;
+    top: 2363.5px;
+    left: 4104px;
+    transform: rotate(175.323deg);
+}
+#scarab3{
+    width: 202.141px;
+    top: 2415px;
+    left: 4090.5px;
+    transform: rotate(-153.562deg);
+}
+#stag1{
+    width: 178.272px;
+    top: 2215px;
+    left: 4348.5px;
+    transform: rotate(111.384deg);
+}
+#stag3{
+    width: 172.131px;
+    top: 2215px;
+    left: 4485.5px;
+    transform: rotate(-99.0245deg);
+}
+#stag2{
+    width: 88.0909px;
+    top: 2132px;
+    left: 4469px;
+    transform: rotate(177.397deg);
+}
+#hound1{
+    width: 118px;
+    top: 2480px;
+    left: 4495px;
+    transform: rotate(0deg);
+}
+#hound2{
+    width: 109.622px;
+    top: 2440.5px;
+    left: 4404px;
+    transform: rotate(46.1088deg);
+}
+#panther1{
+    width: 115.676px;
+    top: 2358px;
+    left: 5028.5px;
+    transform: rotate(34.7891deg);
+}
+#panther2{
+    width: 148.273px;
+    top: 2327.5px;
+    left: 4890px;
+    transform: rotate(-3.47992deg);
+}
+#panther3{
+    width: 97.0155px;
+    top: 2345px;
+    left: 4795px;
+    transform: rotate(-14.3227deg);
+}
+#lotus1{
+    width: 199.409px;
+    top: 2105px;
+    left: 5000px;
+    transform: rotate(135.406deg);
+}
+#lotus2{
+    width: 120.067px;
+    top: 2110px;
+    left: 4969px;
+    transform: rotate(91.9092deg);
+}
+#lotus3{
+    width: 195.182px;
+    top: 2100px;
+    left: 4860px;
+    transform: rotate(45.8303deg);
+}
+#watcher1{
+    width: 77.1751px;
+    top: 2298px;
+    left: 5375px;
+    transform: rotate(31.2184deg);
+}
+#watcher2{
+    width: 146.263px;
+    top: 2210px;
+    left: 5334.5px;
+    transform: rotate(115.514deg);
+}
+#watcher3{
+    width: 76px;
+    top: 2110px;
+    left: 5400px;
+    transform: rotate(90deg);
+}
+#watcher4{
+    width: 110px;
+    top: 2015px;
+    left: 5381px;
+    transform: rotate(90deg);
+}
+#smaiden1{
+    width: 152px;
+    top: 2205px;
+    left: 5867px;
+    transform: rotate(-90deg);
+}
+#smaiden2{
+    width: 120.95px;
+    top: 2230px;
+    left: 5847.5px;
+    transform: rotate(57.4925deg);
+}
+#smaiden3{
+    width: 170px;
+    top: 2095px;
+    left: 5790px;
+    transform: rotate(90deg);
+}
+#smaiden4{
+    width: 122.037px;
+    top: 2230px;
+    left: 5918.5px;
+    transform: rotate(123.299deg);
+}
+#smaiden5{
+    width: 170.047px;
+    top: 2095px;
+    left: 5925px;
+    transform: rotate(88.6521deg);
+}
+#obelisk1{
+    width: 98.7168px;
+    top: 2310.5px;
+    left: 6253px;
+    transform: rotate(13.4732deg);
+}
+#obelisk2{
+    width: 193.662px;
+    top: 2210.5px;
+    left: 6165px;
+    transform: rotate(94.7391deg);
+}
+#obelisk3{
+    width: 250.146px;
+    top: 1988px;
+    left: 6185.5px;
+    transform: rotate(107.928deg);
+}
+#obelisk4{
+    width: 210.794px;
+    top: 1969.5px;
+    left: 6275.5px;
+    transform: rotate(-110.842deg);
+}
+#obelisk5{
+    width: 117.388px;
+    top: 2310px;
+    left: 6349px;
+    transform: rotate(171.18deg);
+}
+#obelisk6{
+    width: 134.164px;
+    top: 2240px;
+    left: 6386px;
+    transform: rotate(79.6952deg);
+}
+#azrakaa1{
+    width: 190.394px;
+    top: 2968.5px;
+    left: 6310.5px;
+    transform: rotate(60.0685deg);
+}
+#azrakaa2{
+    width: 149.121px;
+    top: 2825.5px;
+    left: 6313px;
+    transform: rotate(111.231deg);
+}
+#azrakaa3{
+    width: 194.01px;
+    top: 2655px;
+    left: 6315px;
+    transform: rotate(89.4093deg);
+}
+#azrakaa4{
+    width: 132.401px;
+    top: 2725.5px;
+    left: 6280.5px;
+    transform: rotate(21.7211deg);
+}
+#azrakaa5{
+    width: 119.017px;
+    top: 2762.5px;
+    left: 6226px;
+    transform: rotate(-89.0371deg);
+}
+#harp1{
+    width: 160.462px;
+    top: 3240px;
+    left: 5878px;
+    transform: rotate(100.049deg);
+}
+#harp2{
+    width: 159.524px;
+    top: 3084px;
+    left: 5905px;
+    transform: rotate(97.9269deg);
+}
+#harp3{
+    width: 61.6847px;
+    top: 3014.5px;
+    left: 5934px;
+    transform: rotate(-19.9037deg);
+}
+#harp4{
+    width: 117.614px;
+    top: 2979.5px;
+    left: 5843px;
+    transform: rotate(52.2532deg);
+}
+#harp5{
+    width: 221.326px;
+    top: 3043.5px;
+    left: 5746px;
+    transform: rotate(-86.892deg);
+}
+#scales1{
+    width: 199px;
+    top: 2630.5px;
+    left: 5608px;
+    transform: rotate(90deg);
+}
+#scales2{
+    width: 143.087px;
+    top: 2530.5px;
+    left: 5560.5px;
+    transform: rotate(-2.00253deg);
+}
+#scales3{
+    width: 133.004px;
+    top: 2599.5px;
+    left: 5497.5px;
+    transform: rotate(-90.4308deg);
+}
+#scales4{
+    width: 138.6px;
+    top: 2549.5px;
+    left: 5708.5px;
+    transform: rotate(-163.657deg);
+}
+#scales5{
+    width: 130.035px;
+    top: 2630px;
+    left: 5775.5px;
+    transform: rotate(-91.322deg);
+}
+#nadaan1{
+    width: 203.01px;
+    top: 2953.5px;
+    left: 5510px;
+    transform: rotate(-89.4355deg);
+}
+#nadaan2{
+    width: 123.556px;
+    top: 3010.5px;
+    left: 5588.5px;
+    transform: rotate(129.746deg);
+}
+#nadaan3{
+    width: 122.442px;
+    top: 3005px;
+    left: 5511px;
+    transform: rotate(51.6325deg);
+}
+#nadaan4{
+    width: 121.622px;
+    top: 3097px;
+    left: 5510px;
+    transform: rotate(-45deg);
+}
+#nadaan5{
+    width: 126.732px;
+    top: 3097.5px;
+    left: 5590px;
+    transform: rotate(-137.878deg);
+}
+#eel1{
+    width: 105.546px;
+    top: 2543px;
+    left: 5030px;
+    transform: rotate(99.8193deg);
+}
+#eel2{
+    width: 156.541px;
+    top: 2525px;
+    left: 5085.5px;
+    transform: rotate(-154.253deg);
+}
+#dryad1{
+    width: 103.947px;
+    top: 2810.5px;
+    left: 5100px;
+    transform: rotate(135.39deg);
+}
+#dryad2{
+    width: 101.356px;
+    top: 2805px;
+    left: 5176.5px;
+    transform: rotate(-149.133deg);
+}
+#dryad3{
+    width: 99.1817px;
+    top: 2780.5px;
+    left: 5228px;
+    transform: rotate(93.4682deg);
+}
+#dryad4{
+    width: 113.278px;
+    top: 2768px;
+    left: 5266px;
+    transform: rotate(-137.862deg);
+}
+#assassin1{
+    width: 186.389px;
+    top: 3192px;
+    left: 5145.5px;
+    transform: rotate(124.287deg);
+}
+#assassin2{
+    width: 109.417px;
+    top: 3082px;
+    left: 5280px;
+    transform: rotate(149.216deg);
+}
+#assassin3{
+    width: 102.961px;
+    top: 3059.5px;
+    left: 5226px;
+    transform: rotate(78.7992deg);
+}
+#assassin4{
+    width: 120px;
+    top: 3045px;
+    left: 5162px;
+    transform: rotate(-36.8699deg);
+}
+#assassin5{
+    width: 80.6226px;
+    top: 2993px;
+    left: 5273px;
+    transform: rotate(156.615deg);
+}
+#assassin6{
+    width: 54.6717px;
+    top: 2956px;
+    left: 5300.5px;
+    transform: rotate(50.1944deg);
+}
+#ablade1{
+    width: 64px;
+    top: 3038px;
+    left: 4963px;
+    transform: rotate(180deg);
+}
+#ablade2{
+    width: 90.8735px;
+    top: 3079.5px;
+    left: 4962.5px;
+    transform: rotate(-65.9735deg);
+}
+#ablade3{
+    width: 109.458px;
+    top: 3175.5px;
+    left: 4933px;
+    transform: rotate(-84.7582deg);
+}
+#ablade4{
+    width: 100.21px;
+    top: 3270.5px;
+    left: 4961.5px;
+    transform: rotate(-126.069deg);
+}
+#bull1{
+    width: 123.146px;
+    top: 2796px;
+    left: 4606.5px;
+    transform: rotate(124.077deg);
+}
+#bull2{
+    width: 149.121px;
+    top: 2742px;
+    left: 4705.5px;
+    transform: rotate(177.694deg);
+}
+#bull3{
+    width: 152.958px;
+    top: 2805px;
+    left: 4745px;
+    transform: rotate(-62.7649deg);
+}
+#bull4{
+    width: 112.009px;
+    top: 2758.5px;
+    left: 4847.5px;
+    transform: rotate(-159.624deg);
+}
+#lion1{
+    width: 190.263px;
+    top: 3089px;
+    left: 4620px;
+    transform: rotate(123.857deg);
+}
+#lion2{
+    width: 186.987px;
+    top: 3089px;
+    left: 4718px;
+    transform: rotate(-122.33deg);
+}
+#tortoise1{
+    width: 98.4124px;
+    top: 3039.5px;
+    left: 4213px;
+    transform: rotate(132.117deg);
+}
+#tortoise2{
+    width: 120.104px;
+    top: 2998.5px;
+    left: 4290px;
+    transform: rotate(177.614deg);
+}
+#tortoise3{
+    width: 127.059px;
+    top: 3050px;
+    left: 4380px;
+    transform: rotate(-118.179deg);
+}
+#tortoise4{
+    width: 96.026px;
+    top: 2991px;
+    left: 4407.5px;
+    transform: rotate(171.617deg);
+}
+#sguide1{
+    width: 58.8558px;
+    top: 2730px;
+    left: 4157px;
+    transform: rotate(99.7824deg);
+}
+#sguide2{
+    width: 144.451px;
+    top: 2730.5px;
+    left: 4180.5px;
+    transform: rotate(-153.258deg);
+}
+#sguide3{
+    width: 94.541px;
+    top: 2682.5px;
+    left: 4188.5px;
+    transform: rotate(156.961deg);
+}
+#tsunami1{
+    width: 84.8646px;
+    top: 2776.5px;
+    left: 3895.5px;
+    transform: rotate(21.4253deg);
+}
+#tsunami2{
+    width: 105.551px;
+    top: 2725px;
+    left: 3805.5px;
+    transform: rotate(41.5434deg);
+}
+#tsunami3{
+    width: 70.214px;
+    top: 2700.5px;
+    left: 3750.5px;
+    transform: rotate(-17.4027deg);
+}
+#tsunami4{
+    width: 71.8679px;
+    top: 2747.5px;
+    left: 3736px;
+    transform: rotate(-121.921deg);
+}
+#viper1{
+    width: 204.978px;
+    top: 2733px;
+    left: 3165px;
+    transform: rotate(-162.979deg);
+}
+#viper2{
+    width: 143.01px;
+    top: 2705px;
+    left: 3243px;
+    transform: rotate(47.8341deg);
+}
+#viper3{
+    width: 102.801px;
+    top: 2625px;
+    left: 3256px;
+    transform: rotate(142.907deg);
+}
+#imp1{
+    width: 70.6824px;
+    top: 2978px;
+    left: 3605px;
+    transform: rotate(-115.115deg);
+}
+#imp2{
+    width: 83.863px;
+    top: 3031.5px;
+    left: 3580px;
+    transform: rotate(-30.8466deg);
+}
+#imp3{
+    width: 90.0278px;
+    top: 3020px;
+    left: 3505.5px;
+    transform: rotate(49.0536deg);
+}
+#imp4{
+    width: 96.8969px;
+    top: 2950px;
+    left: 3440.5px;
+    transform: rotate(46.2545deg);
+}
+#jackal1{
+    width: 191.45px;
+    top: 2615.5px;
+    left: 2740px;
+    transform: rotate(-115.36deg);
+}
+#jackal2{
+    width: 157.889px;
+    top: 2728.5px;
+    left: 2870px;
+    transform: rotate(-159.614deg);
+}
+#vulture1{
+    width: 94.9368px;
+    top: 2730px;
+    left: 2343.5px;
+    transform: rotate(156.405deg);
+}
+#vulture2{
+    width: 166.352px;
+    top: 2656px;
+    left: 2290.5px;
+    transform: rotate(42.32deg);
+}
+#vulture3{
+    width: 148.553px;
+    top: 2661px;
+    left: 2415px;
+    transform: rotate(136.637deg);
+}
+#vulture4{
+    width: 112.071px;
+    top: 2768px;
+    left: 2374px;
+    transform: rotate(-87.9546deg);
+}
+#chariot1{
+    width: 129.557px;
+    top: 2741.5px;
+    left: 1870px;
+    transform: rotate(42.1844deg);
+}
+#chariot2{
+    width: 76.531px;
+    top: 2660px;
+    left: 1848.5px;
+    transform: rotate(83.2464deg);
+}
+#chariot3{
+    width: 65.5134px;
+    top: 2685px;
+    left: 1886px;
+    transform: rotate(148.736deg);
+}
+#chariot4{
+    width: 81.4678px;
+    top: 2649px;
+    left: 1810.5px;
+    transform: rotate(-41.5167deg);
+}
+#chariot5{
+    width: 259px;
+    top: 2676px;
+    left: 1560.5px;
+    transform: rotate(0deg);
+}
+#chariot6{
+    width: 111.629px;
+    top: 2658.5px;
+    left: 1446px;
+    transform: rotate(18.2726deg);
+}
+#yugol1{
+    width: 212.2px;
+    top: 3305px;
+    left: 465.5px;
+    transform: rotate(107.837deg);
+}
+#yugol2{
+    width: 162.496px;
+    top: 3192px;
+    left: 609.5px;
+    transform: rotate(172.219deg);
+}
+#yugol3{
+    width: 344.819px;
+    top: 3113px;
+    left: 750px;
+    transform: rotate(156.409deg);
+}
+#yugol4{
+    width: 377.598px;
+    top: 2994px;
+    left: 605px;
+    transform: rotate(97.9155deg);
+}
+#yugol5{
+    width: 191.69px;
+    top: 2791px;
+    left: 627.5px;
+    transform: rotate(9.60974deg);
+}
+#wendigo1{
+    width: 115.434px;
+    top: 3220px;
+    left: 1620.5px;
+    transform: rotate(107.65deg);
+}
+#wendigo2{
+    width: 154.693px;
+    top: 3191.5px;
+    left: 1680.5px;
+    transform: rotate(-157.58deg);
+}
+#wendigo3{
+    width: 110.82px;
+    top: 3166.5px;
+    left: 1766px;
+    transform: rotate(79.6027deg);
+}
+#wendigo4{
+    width: 80.6102px;
+    top: 3083.5px;
+    left: 1742.5px;
+    transform: rotate(45deg);
+}
+#wendigo5{
+    width: 74.7329px;
+    top: 3058px;
+    left: 1687.5px;
+    transform: rotate(-12.3625deg);
+}
+#mantis1{
+    width: 262.855px;
+    top: 3040px;
+    left: 2150.5px;
+    transform: rotate(38.047deg);
+}
+#mantis2{
+    width: 94.1488px;
+    top: 3005px;
+    left: 2140px;
+    transform: rotate(-102.265deg);
+}
+#mantis3{
+    width: 78px;
+    top: 3034px;
+    left: 2124px;
+    transform: rotate(22.6199deg);
+}
+#witchblade1{
+    width: 123.762px;
+    top: 3408px;
+    left: 2313.5px;
+    transform: rotate(-12.1271deg);
+}
+#witchblade2{
+    width: 92.5743px;
+    top: 3410.5px;
+    left: 2218.5px;
+    transform: rotate(10.5816deg);
+}
+#witchblade3{
+    width: 80.2808px;
+    top: 3435px;
+    left: 2151.5px;
+    transform: rotate(-50.5599deg);
+}
+#witchblade4{
+    width: 138.232px;
+    top: 3469px;
+    left: 2032px;
+    transform: rotate(-3.31778deg);
+}
+#ghoul1{
+    width: 116.297px;
+    top: 3540.5px;
+    left: 2553px;
+    transform: rotate(117.667deg);
+}
+#ghoul2{
+    width: 152.122px;
+    top: 3553px;
+    left: 2597.5px;
+    transform: rotate(-121.287deg);
+}
+#ghoul3{
+    width: 86.4002px;
+    top: 3446.5px;
+    left: 2583px;
+    transform: rotate(73.8724deg);
+}
+#ghoul4{
+    width: 159.806px;
+    top: 3461.5px;
+    left: 2590.5px;
+    transform: rotate(-135deg);
+}
+#fiend1{
+    width: 148.933px;
+    top: 3110.5px;
+    left: 2551px;
+    transform: rotate(76.8035deg);
+}
+#fiend2{
+    width: 135.602px;
+    top: 2985px;
+    left: 2580px;
+    transform: rotate(127.208deg);
+}
+#fiend3{
+    width: 95.1893px;
+    top: 2977px;
+    left: 2648.5px;
+    transform: rotate(-99.0665deg);
+}
+#fiend4{
+    width: 113.137px;
+    top: 3020px;
+    left: 2700px;
+    transform: rotate(171.87deg);
+}
+#wretch1{
+    width: 121.277px;
+    top: 3230px;
+    left: 3011px;
+    transform: rotate(13.3487deg);
+}
+#wretch2{
+    width: 127.664px;
+    top: 3167.5px;
+    left: 2985.5px;
+    transform: rotate(130.553deg);
+}
+#wretch3{
+    width: 194.139px;
+    top: 3023.5px;
+    left: 3002.5px;
+    transform: rotate(96.2098deg);
+}
+#bat1{
+    width: 114.127px;
+    top: 3433.5px;
+    left: 2925px;
+    transform: rotate(155.681deg);
+}
+#bat2{
+    width: 114.791px;
+    top: 3430px;
+    left: 3030.5px;
+    transform: rotate(-161.723deg);
+}
+#bat3{
+    width: 105.702px;
+    top: 3429px;
+    left: 3133.5px;
+    transform: rotate(156.588deg);
+}
+#bat4{
+    width: 101.533px;
+    top: 3430.5px;
+    left: 3230px;
+    transform: rotate(-152.425deg);
+}
+#rat1{
+    width: 125.16px;
+    top: 3244.5px;
+    left: 3426px;
+    transform: rotate(-104.813deg);
+}
+#rat2{
+    width: 125.865px;
+    top: 3349.5px;
+    left: 3482.5px;
+    transform: rotate(-135deg);
+}
+#rat3{
+    width: 111.826px;
+    top: 3368px;
+    left: 3590.5px;
+    transform: rotate(152.289deg);
+}
+#falcon1{
+    width: 143.056px;
+    top: 3310.5px;
+    left: 4128px;
+    transform: rotate(38.4722deg);
+}
+#falcon2{
+    width: 108.046px;
+    top: 3294.5px;
+    left: 4040.5px;
+    transform: rotate(-30.6deg);
+}
+#falcon3{
+    width: 111.826px;
+    top: 3295px;
+    left: 3949.5px;
+    transform: rotate(27.7108deg);
+}
+#falcon4{
+    width: 147.757px;
+    top: 3315px;
+    left: 3823px;
+    transform: rotate(-39.5077deg);
+}
+#crane1{
+    width: 149.656px;
+    top: 3556.5px;
+    left: 4533px;
+    transform: rotate(84.6323deg);
+}
+#crane2{
+    width: 99.0202px;
+    top: 3455px;
+    left: 4587.5px;
+    transform: rotate(146.952deg);
+}
+#crane3{
+    width: 73.9797px;
+    top: 3391.5px;
+    left: 4638px;
+    transform: rotate(80.665deg);
+}
+#crane4{
+    width: 55.0818px;
+    top: 3356.5px;
+    left: 4667.5px;
+    transform: rotate(-176.878deg);
+}
+#hammer1{
+    width: 281.016px;
+    top: 3463.5px;
+    left: 4916.5px;
+    transform: rotate(0.611675deg);
+}
+#hammer2{
+    width: 70.0071px;
+    top: 3497px;
+    left: 4874.5px;
+    transform: rotate(-90.8185deg);
+}
+#targo1{
+    width: 110.114px;
+    top: 3756.5px;
+    left: 5470px;
+    transform: rotate(55.7327deg);
+}
+#targo2{
+    width: 108.577px;
+    top: 3752.5px;
+    left: 5400px;
+    transform: rotate(-49.8566deg);
+}
+#targo3{
+    width: 100.568px;
+    top: 3665.5px;
+    left: 5458.5px;
+    transform: rotate(109.156deg);
+}
+#targo4{
+    width: 136.653px;
+    top: 3669.5px;
+    left: 5500.5px;
+    transform: rotate(-128.463deg);
+}
+#targo5{
+    width: 129.418px;
+    top: 3567.5px;
+    left: 5417px;
+    transform: rotate(45.9392deg);
+}
+#targo6{
+    width: 78.6448px;
+    top: 3497px;
+    left: 5426.5px;
+    transform: rotate(138.608deg);
+}
+#anvil1{
+    width: 120px;
+    top: 3743px;
+    left: 4948px;
+    transform: rotate(180deg);
+}
+#anvil2{
+    width: 82.7345px;
+    top: 3710.5px;
+    left: 4994px;
+    transform: rotate(45.4897deg);
+}
+#anvil3{
+    width: 151.003px;
+    top: 3655.5px;
+    left: 5004.5px;
+    transform: rotate(157.001deg);
+}
+#anvil4{
+    width: 251.032px;
+    top: 3628px;
+    left: 4895.5px;
+    transform: rotate(-0.913003deg);
+}
+#scrook1{
+    width: 230.02px;
+    top: 3767px;
+    left: 4001.5px;
+    transform: rotate(90.7473deg);
+}
+#scrook2{
+    width: 78.4347px;
+    top: 3610px;
+    left: 4097px;
+    transform: rotate(109.359deg);
+}
+#scrook3{
+    width: 64.0703px;
+    top: 3596px;
+    left: 4136.5px;
+    transform: rotate(-145.814deg);
+}
+#scrook4{
+    width: 68.0661px;
+    top: 3647.5px;
+    left: 4157px;
+    transform: rotate(-79.8457deg);
+}
+#scorpion1{
+    width: 78.5684px;
+    top: 3653px;
+    left: 3835.5px;
+    transform: rotate(-132.421deg);
+}
+#scorpion2{
+    width: 135.915px;
+    top: 3750.5px;
+    left: 3820px;
+    transform: rotate(-78.1113deg);
+}
+#scorpion3{
+    width: 119.887px;
+    top: 3846.5px;
+    left: 3760px;
+    transform: rotate(-31.7014deg);
+}
+#scorpion4{
+    width: 87.8009px;
+    top: 3850px;
+    left: 3857.5px;
+    transform: rotate(-127.131deg);
+}
+#eye1{
+    width: 137.83px;
+    top: 3751px;
+    left: 3563.5px;
+    transform: rotate(151.39deg);
+}
+#eye2{
+    width: 136.418px;
+    top: 3686.5px;
+    left: 3563.5px;
+    transform: rotate(27.5042deg);
+}
+#eye3{
+    width: 128.413px;
+    top: 3685.5px;
+    left: 3446.5px;
+    transform: rotate(-28.3612deg);
+}
+#eye4{
+    width: 112px;
+    top: 3720px;
+    left: 3456px;
+    transform: rotate(180deg);
+}
+#spider1{
+    width: 149.003px;
+    top: 3737.5px;
+    left: 3190.5px;
+    transform: rotate(-151.543deg);
+}
+#spider2{
+    width: 139.589px;
+    top: 3758.5px;
+    left: 3164px;
+    transform: rotate(-118.217deg);
+}
+#spider3{
+    width: 139.09px;
+    top: 3759.5px;
+    left: 3100.5px;
+    transform: rotate(-63.9876deg);
+}
+#spider4{
+    width: 148.125px;
+    top: 3732.5px;
+    left: 3061px;
+    transform: rotate(-28.6413deg);
+}
+#soldier1{
+    width: 107.005px;
+    top: 3596.5px;
+    left: 5938.5px;
+    transform: rotate(-89.4645deg);
+}
+#soldier2{
+    width: 121.248px;
+    top: 3675.5px;
+    left: 5880px;
+    transform: rotate(-24.8742deg);
+}
+#soldier3{
+    width: 133.881px;
+    top: 3666px;
+    left: 5990px;
+    transform: rotate(-166.171deg);
+}
+#soldier4{
+    width: 184.629px;
+    top: 3750px;
+    left: 5970px;
+    transform: rotate(-50.2739deg);
+}
+#soldier5{
+    width: 124px;
+    top: 3886px;
+    left: 5940px;
+    transform: rotate(-90deg);
+}
+#soldier6{
+    width: 234px;
+    top: 4065px;
+    left: 5885px;
+    transform: rotate(-90deg);
+}
+#ulzaad1{
+    width: 448.208px;
+    top: 4257.5px;
+    left: 5376.5px;
+    transform: rotate(74.0722deg);
+}
+#ulzaad2{
+    width: 217.72px;
+    top: 4130.5px;
+    left: 5490.5px;
+    transform: rotate(-123.763deg);
+}
+#ulzaad3{
+    width: 396.548px;
+    top: 4234.5px;
+    left: 5300.5px;
+    transform: rotate(-78.8034deg);
+}
+#ulzaad4{
+    width: 164.575px;
+    top: 4027.5px;
+    left: 5380px;
+    transform: rotate(10.1492deg);
+}
+#ulzaad5{
+    width: 107.378px;
+    top: 3982.5px;
+    left: 5278.5px;
+    transform: rotate(32.0619deg);
+}
+#toad1{
+    width: 122.147px;
+    top: 4315px;
+    left: 4985px;
+    transform: rotate(129.685deg);
+}
+#toad2{
+    width: 116.842px;
+    top: 4260px;
+    left: 5085px;
+    transform: rotate(173.118deg);
+}
+#toad3{
+    width: 96.5194px;
+    top: 4305px;
+    left: 5156px;
+    transform: rotate(-95.9469deg);
+}
+#harpy1{
+    width: 121.511px;
+    top: 4022px;
+    left: 5008.5px;
+    transform: rotate(103.808deg);
+}
+#harpy2{
+    width: 125.1px;
+    top: 3920.5px;
+    left: 4975.5px;
+    transform: rotate(39.1605deg);
+}
+#harpy3{
+    width: 88.6002px;
+    top: 3925.5px;
+    left: 5070.5px;
+    transform: rotate(126.741deg);
+}
+#owl1{
+    width: 91.7061px;
+    top: 4359.5px;
+    left: 4735.5px;
+    transform: rotate(-115.168deg);
+}
+#owl2{
+    width: 106.621px;
+    top: 4455px;
+    left: 4723px;
+    transform: rotate(-66.8014deg);
+}
+#owl3{
+    width: 114.56px;
+    top: 4456px;
+    left: 4758px;
+    transform: rotate(-106.22deg);
+}
+#hawk1{
+    width: 122.772px;
+    top: 4289px;
+    left: 4109.5px;
+    transform: rotate(-156.985deg);
+}
+#hawk2{
+    width: 110px;
+    top: 4280px;
+    left: 4215px;
+    transform: rotate(143.13deg);
+}
+#nighttalon1{
+    width: 185.068px;
+    top: 4068.5px;
+    left: 4300.5px;
+    transform: rotate(125.322deg);
+}
+#nighttalon2{
+    width: 140.801px;
+    top: 4058px;
+    left: 4380.5px;
+    transform: rotate(-96.1155deg);
+}
+#nighttalon3{
+    width: 132.382px;
+    top: 3930.5px;
+    left: 4409px;
+    transform: rotate(115.984deg);
+}
+#slight1{
+    width: 160.028px;
+    top: 4395px;
+    left: 3757.5px;
+    transform: rotate(91.0742deg);
+}
+#slight2{
+    width: 216px;
+    top: 4207px;
+    left: 3732px;
+    transform: rotate(90deg);
+}
+#quill1{
+    width: 130px;
+    top: 4433px;
+    left: 3437px;
+    transform: rotate(90deg);
+}
+#quill2{
+    width: 140.036px;
+    top: 4307.5px;
+    left: 3460.5px;
+    transform: rotate(114.918deg);
+}
+#quill3{
+    width: 155.193px;
+    top: 4171px;
+    left: 3521.5px;
+    transform: rotate(117.225deg);
+}
+#fox1{
+    width: 141.113px;
+    top: 4353.5px;
+    left: 3070px;
+    transform: rotate(130.689deg);
+}
+#fox2{
+    width: 119.004px;
+    top: 4299.5px;
+    left: 3183.5px;
+    transform: rotate(179.519deg);
+}
+#fox3{
+    width: 96.0469px;
+    top: 4347px;
+    left: 3257.5px;
+    transform: rotate(-91.7899deg);
+}
+#raven1{
+    width: 214.767px;
+    top: 4022px;
+    left: 3110.5px;
+    transform: rotate(151.645deg);
+}
+#raven2{
+    width: 155.425px;
+    top: 3981.5px;
+    left: 3155px;
+    transform: rotate(-7.76517deg);
+}
+#raven3{
+    width: 145px;
+    top: 4029px;
+    left: 3196.5px;
+    transform: rotate(-53.1301deg);
+}
+#bbonds1{
+    width: 106.066px;
+    top: 4332.5px;
+    left: 2821.5px;
+    transform: rotate(45deg);
+}
+#bbonds2{
+    width: 158.221px;
+    top: 4246.5px;
+    left: 2820.5px;
+    transform: rotate(142.189deg);
+}
+#bbonds3{
+    width: 73.8241px;
+    top: 4165.5px;
+    left: 2911.5px;
+    transform: rotate(61.6992deg);
+}
+#bbonds4{
+    width: 57.5847px;
+    top: 4143px;
+    left: 2867px;
+    transform: rotate(-20.3231deg);
+}
+#berserker1{
+    width: 103.005px;
+    top: 3848.5px;
+    left: 2478.5px;
+    transform: rotate(-89.4437deg);
+}
+#berserker2{
+    width: 175.069px;
+    top: 3863px;
+    left: 2502.5px;
+    transform: rotate(-131.063deg);
+}
+#berserker3{
+    width: 82.4621px;
+    top: 3897px;
+    left: 2635px;
+    transform: rotate(129.094deg);
+}
+#berserker4{
+    width: 130.419px;
+    top: 3837px;
+    left: 2417.5px;
+    transform: rotate(-37.8365deg);
+}
+#berserker5{
+    width: 103.711px;
+    top: 3837px;
+    left: 2343px;
+    transform: rotate(50.4774deg);
+}
+#hydra1{
+    width: 215.362px;
+    top: 3862px;
+    left: 1928.5px;
+    transform: rotate(17.846deg);
+}
+#hydra2{
+    width: 94.921px;
+    top: 3812.5px;
+    left: 1841.5px;
+    transform: rotate(20.3441deg);
+}
+#hydra3{
+    width: 126.317px;
+    top: 3821px;
+    left: 1719px;
+    transform: rotate(-23.3177deg);
+}
+#hydra4{
+    width: 193.01px;
+    top: 3732.5px;
+    left: 1834px;
+    transform: rotate(90.5937deg);
+}
+#hydra5{
+    width: 176.233px;
+    top: 3757.5px;
+    left: 1790.5px;
+    transform: rotate(54.2356deg);
+}
+#torch1{
+    width: 206.002px;
+    top: 4102px;
+    left: 1260.5px;
+    transform: rotate(90.2781deg);
+}
+#torch2{
+    width: 217.002px;
+    top: 3890.5px;
+    left: 1253.5px;
+    transform: rotate(90.264deg);
+}
+#torch3{
+    width: 122.119px;
+    top: 3728px;
+    left: 1275.5px;
+    transform: rotate(62.1759deg);
+}
+#torch4{
+    width: 77.2334px;
+    top: 3753px;
+    left: 1350.5px;
+    transform: rotate(131.326deg);
+}
+#torch5{
+    width: 101.178px;
+    top: 3673.5px;
+    left: 1360px;
+    transform: rotate(86.6003deg);
+}
+#torch6{
+    width: 148.93px;
+    top: 3602px;
+    left: 1251px;
+    transform: rotate(104.783deg);
+}
+#hyrian1{
+    width: 101.607px;
+    top: 4462px;
+    left: 1845px;
+    transform: rotate(169.796deg);
+}
+#hyrian2{
+    width: 101.966px;
+    top: 4446px;
+    left: 1945.5px;
+    transform: rotate(172.108deg);
+}
+#hyrian3{
+    width: 157.582px;
+    top: 4367px;
+    left: 1995px;
+    transform: rotate(113.962deg);
+}
+#hyrian4{
+    width: 127.094px;
+    top: 4405.5px;
+    left: 1922px;
+    transform: rotate(31.8142deg);
+}
+#hyrian5{
+    width: 191.909px;
+    top: 4289.5px;
+    left: 1785px;
+    transform: rotate(59.2923deg);
+}
+#magi1{
+    width: 232.545px;
+    top: 4658px;
+    left: 2560.5px;
+    transform: rotate(66.9632deg);
+}
+#magi2{
+    width: 104.235px;
+    top: 4499.5px;
+    left: 2583px;
+    transform: rotate(98.8297deg);
+}
+#magi3{
+    width: 72.7186px;
+    top: 4417px;
+    left: 2630px;
+    transform: rotate(121.504deg);
+}
+#magi4{
+    width: 158.474px;
+    top: 4515.5px;
+    left: 2608.5px;
+    transform: rotate(-121.584deg);
+}
+#magi5{
+    width: 82.807px;
+    top: 4420px;
+    left: 2575.5px;
+    transform: rotate(42.553deg);
+}
+#magi6{
+    width: 158.316px;
+    top: 4313px;
+    left: 2500px;
+    transform: rotate(86.3785deg);
+}
+#murmur1{
+    width: 187.257px;
+    top: 4928.5px;
+    left: 2957px;
+    transform: rotate(-104.853deg);
+}
+#murmur2{
+    width: 115.521px;
+    top: 4965px;
+    left: 3040.5px;
+    transform: rotate(110.788deg);
+}
+#murmur3{
+    width: 132.424px;
+    top: 4851px;
+    left: 3080px;
+    transform: rotate(115.017deg);
+}
+#murmur4{
+    width: 151.99px;
+    top: 4728px;
+    left: 3055.5px;
+    transform: rotate(55.9963deg);
+}
+#murmur5{
+    width: 148.95px;
+    top: 4728.5px;
+    left: 3138.5px;
+    transform: rotate(122.943deg);
+}
+#manticore1{
+    width: 93.1719px;
+    top: 4901.5px;
+    left: 3560px;
+    transform: rotate(102.395deg);
+}
+#manticore2{
+    width: 196.329px;
+    top: 4835.5px;
+    left: 3615px;
+    transform: rotate(167.946deg);
+}
+#manticore3{
+    width: 115.156px;
+    top: 4872.5px;
+    left: 3742px;
+    transform: rotate(-87.0134deg);
+}
+#manticore4{
+    width: 142.274px;
+    top: 4770.5px;
+    left: 3790.5px;
+    transform: rotate(141.277deg);
+}
+#manticore5{
+    width: 140.801px;
+    top: 4658.5px;
+    left: 3825px;
+    transform: rotate(73.4956deg);
+}
+#hscythe1{
+    width: 144.931px;
+    top: 4776.5px;
+    left: 4156px;
+    transform: rotate(64.6726deg);
+}
+#hscythe2{
+    width: 96.8762px;
+    top: 4663px;
+    left: 4157.5px;
+    transform: rotate(97.7119deg);
+}
+#hscythe3{
+    width: 79.2023px;
+    top: 4583.5px;
+    left: 4150px;
+    transform: rotate(52.6961deg);
+}
+#hscythe4{
+    width: 90.0888px;
+    top: 4550px;
+    left: 4080px;
+    transform: rotate(2.5448deg);
+}
+#hscythe5{
+    width: 103.947px;
+    top: 4585px;
+    left: 3985.5px;
+    transform: rotate(-45.3898deg);
+}
+#throne1{
+    width: 173.012px;
+    top: 4607.5px;
+    left: 4393px;
+    transform: rotate(-90.6623deg);
+}
+#throne2{
+    width: 84.8999px;
+    top: 4665px;
+    left: 4474px;
+    transform: rotate(136.909deg);
+}
+#throne3{
+    width: 84.22px;
+    top: 4667.5px;
+    left: 4410px;
+    transform: rotate(42.594deg);
+}
+#rcrown1{
+    width: 74.3303px;
+    top: 4766.5px;
+    left: 4598px;
+    transform: rotate(-107.216deg);
+}
+#rcrown2{
+    width: 100.17px;
+    top: 4759.5px;
+    left: 4627.5px;
+    transform: rotate(121.945deg);
+}
+#rcrown3{
+    width: 101.257px;
+    top: 4758.5px;
+    left: 4676px;
+    transform: rotate(-124.946deg);
+}
+#rcrown4{
+    width: 70.0928px;
+    top: 4766px;
+    left: 4733.5px;
+    transform: rotate(104.036deg);
+}
+#wolverine1{
+    width: 63.0714px;
+    top: 5017.5px;
+    left: 4639.5px;
+    transform: rotate(92.7263deg);
+}
+#wolverine2{
+    width: 112.401px;
+    top: 4963.5px;
+    left: 4670.5px;
+    transform: rotate(156.4deg);
+}
+#wolverine3{
+    width: 123.179px;
+    top: 5002px;
+    left: 4705.5px;
+    transform: rotate(-82.0672deg);
+}
+#wolverine4{
+    width: 85.6154px;
+    top: 4951.5px;
+    left: 4778.5px;
+    transform: rotate(-165.801deg);
+}
+#typhos1{
+    width: 242.528px;
+    top: 4856px;
+    left: 4965px;
+    transform: rotate(111.275deg);
+}
+#typhos2{
+    width: 82.0061px;
+    top: 4703.5px;
+    left: 5100px;
+    transform: rotate(105.562deg);
+}
+#typhos3{
+    width: 100.424px;
+    top: 4695px;
+    left: 5138.5px;
+    transform: rotate(-141.875deg);
+}
+#typhos4{
+    width: 81.5843px;
+    top: 4656px;
+    left: 5075px;
+    transform: rotate(11.3099deg);
+}
+#typhos5{
+    width: 119.436px;
+    top: 4702px;
+    left: 4985.5px;
+    transform: rotate(-64.7223deg);
+}
+#scepter1{
+    width: 288.73px;
+    top: 4911.5px;
+    left: 5550px;
+    transform: rotate(55.8696deg);
+}
+#scepter2{
+    width: 110.549px;
+    top: 4737px;
+    left: 5565.5px;
+    transform: rotate(95.7106deg);
+}
+#scepter3{
+    width: 79.3788px;
+    top: 4669px;
+    left: 5550.5px;
+    transform: rotate(19.1197deg);
+}
+#scepter4{
+    width: 115.694px;
+    top: 4777.5px;
+    left: 5500px;
+    transform: rotate(14.5167deg);
+}
+#scepter5{
+    width: 71px;
+    top: 4727.5px;
+    left: 5468px;
+    transform: rotate(90deg);
+}
+#oleron1{
+    width: 224.615px;
+    top: 5570px;
+    left: 5740px;
+    transform: rotate(-155.26deg);
+}
+#oleron2{
+    width: 221.054px;
+    top: 5509px;
+    left: 5822.5px;
+    transform: rotate(77.7242deg);
+}
+#oleron3{
+    width: 133.27px;
+    top: 5341.5px;
+    left: 5870px;
+    transform: rotate(116.757deg);
+}
+#oleron4{
+    width: 145.619px;
+    top: 5245.5px;
+    left: 5957px;
+    transform: rotate(149.913deg);
+}
+#oleron5{
+    width: 255.986px;
+    top: 5304.5px;
+    left: 5720px;
+    transform: rotate(-10.1247deg);
+}
+#oleron6{
+    width: 283.143px;
+    top: 5392.5px;
+    left: 5915.5px;
+    transform: rotate(-128.691deg);
+}
+#boar1{
+    width: 135.3px;
+    top: 5349.5px;
+    left: 5313.5px;
+    transform: rotate(86.1859deg);
+}
+#boar2{
+    width: 133.417px;
+    top: 5255px;
+    left: 5253px;
+    transform: rotate(23.8753deg);
+}
+#boar3{
+    width: 207.617px;
+    top: 5331.5px;
+    left: 5160px;
+    transform: rotate(-94.4199deg);
+}
+#boar4{
+    width: 99.8248px;
+    top: 5191px;
+    left: 5173.5px;
+    transform: rotate(47.8421deg);
+}
+#boar5{
+    width: 90.1388px;
+    top: 5139px;
+    left: 5107.5px;
+    transform: rotate(19.44deg);
+}
+#boar6{
+    width: 96.8349px;
+    top: 5182px;
+    left: 5100.5px;
+    transform: rotate(-35.3313deg);
+}
+#crab1{
+    width: 158.07px;
+    top: 5403.5px;
+    left: 4637.5px;
+    transform: rotate(11.3099deg);
+}
+#crab2{
+    width: 179.449px;
+    top: 5317.5px;
+    left: 4600.5px;
+    transform: rotate(128.211deg);
+}
+#crab3{
+    width: 190.074px;
+    top: 5261px;
+    left: 4740px;
+    transform: rotate(-171.529deg);
+}
+#crab4{
+    width: 98.4886px;
+    top: 5295px;
+    left: 4834px;
+    transform: rotate(-23.9625deg);
+}
+#huntress1{
+    width: 147.221px;
+    top: 5390.5px;
+    left: 4255.5px;
+    transform: rotate(13.7531deg);
+}
+#huntress2{
+    width: 215.337px;
+    top: 5305.5px;
+    left: 4225.5px;
+    transform: rotate(138.389deg);
+}
+#huntress3{
+    width: 89.8053px;
+    top: 5198px;
+    left: 4339.5px;
+    transform: rotate(45.4511deg);
+}
+#huntress4{
+    width: 191.149px;
+    top: 5183.5px;
+    left: 4237.5px;
+    transform: rotate(29.1128deg);
+}
+#huntress5{
+    width: 182.099px;
+    top: 5228px;
+    left: 4150px;
+    transform: rotate(-88.1118deg);
+}
+#huntress6{
+    width: 141.824px;
+    top: 5103.5px;
+    left: 4240.5px;
+    transform: rotate(151.809deg);
+}
+#mwolf1{
+    width: 138.852px;
+    top: 5402px;
+    left: 3790px;
+    transform: rotate(138.504deg);
+}
+#mwolf2{
+    width: 146.113px;
+    top: 5284.5px;
+    left: 3850px;
+    transform: rotate(101.848deg);
+}
+#mwolf3{
+    width: 176.162px;
+    top: 5129px;
+    left: 3880.5px;
+    transform: rotate(107.509deg);
+}
+#mwolf4{
+    width: 170.766px;
+    top: 5067px;
+    left: 3825.5px;
+    transform: rotate(-14.9314deg);
+}
+#mwolf5{
+        width: 164.012px;
+    top: 5111px;
+    left: 3660px;
+    transform: rotate(-15.5615deg);
+}
+#affliction1{
+    width: 152.191px;
+    top: 5507.5px;
+    left: 2939.5px;
+    transform: rotate(-172.828deg);
+}
+#affliction2{
+    width: 118.207px;
+    top: 5488px;
+    left: 3085.5px;
+    transform: rotate(150.616deg);
+}
+#affliction3{
+    width: 82.7587px;
+    top: 5429px;
+    left: 3120.5px;
+    transform: rotate(46.4688deg);
+}
+#affliction4{
+    width: 118.017px;
+    top: 5340px;
+    left: 3075px;
+    transform: rotate(89.029deg);
+}
+#affliction5{
+    width: 89.1964px;
+    top: 5429px;
+    left: 3181px;
+    transform: rotate(137.726deg);
+}
+#affliction6{
+    width: 122.332px;
+    top: 5338px;
+    left: 3200.5px;
+    transform: rotate(94.2191deg);
+}
+#phoenix1{
+    width: 127.581px;
+    top: 5576.5px;
+    left: 2510px;
+    transform: rotate(68.8658deg);
+}
+#phoenix2{
+    width: 96.566px;
+    top: 5491.5px;
+    left: 2465px;
+    transform: rotate(31.8796deg);
+}
+#phoenix3{
+    width: 191.039px;
+    top: 5376px;
+    left: 2405px;
+    transform: rotate(109.573deg);
+}
+#phoenix4{
+    width: 196.797px;
+    top: 5210px;
+    left: 2375.5px;
+    transform: rotate(50.5672deg);
+}
+#lantern1{
+    width: 108.784px;
+    top: 4795.5px;
+    left: 2058.5px;
+    transform: rotate(-60.8431deg);
+}
+#lantern2{
+    width: 188.266px;
+    top: 4937px;
+    left: 2001px;
+    transform: rotate(-93.0448deg);
+}
+#lantern3{
+    width: 83px;
+    top: 5031px;
+    left: 2102.5px;
+    transform: rotate(180deg);
+}
+#lantern4{
+    width: 187.385px;
+    top: 4937.5px;
+    left: 2095px;
+    transform: rotate(93.6717deg);
+}
+#behemoth1{
+    width: 61.2944px;
+    top: 4851.5px;
+    left: 1668px;
+    transform: rotate(-151.763deg);
+}
+#behemoth2{
+    width: 223.213px;
+    top: 4956px;
+    left: 1680px;
+    transform: rotate(-126.254deg);
+}
+#behemoth3{
+    width: 380.747px;
+    top: 5047px;
+    left: 1594px;
+    transform: rotate(-108.054deg);
+}
+#behemoth4{
+    width: 359.302px;
+    top: 5042.5px;
+    left: 1515.5px;
+    transform: rotate(-79.253deg);
+}
+#behemoth5{
+    width: 145.413px;
+    top: 4900.5px;
+    left: 1590px;
+    transform: rotate(-28.3274deg);
+}
+#abomination1{
+    width: 169.779px;
+    top: 4819.5px;
+    left: 1155px;
+    transform: rotate(76.373deg);
+}
+#abomination2{
+    width: 205.913px;
+    top: 4635px;
+    left: 1130px;
+    transform: rotate(97.8153deg);
+}
+#abomination3{
+    width: 248.002px;
+    top: 4632.5px;
+    left: 1200px;
+    transform: rotate(-126.639deg);
+}
+#abomination4{
+    width: 166.964px;
+    top: 4586px;
+    left: 1100.5px;
+    transform: rotate(-39.4101deg);
+}
+#abomination5{
+    width: 216.002px;
+    top: 4747px;
+    left: 1010.5px;
+    transform: rotate(-90.2653deg);
+}
+#abomination6{
+    width: 161.152px;
+    top: 4935.5px;
+    left: 1043.5px;
+    transform: rotate(-92.4896deg);
+}
+#abomination7{
+    width: 155.029px;
+    top: 4809.5px;
+    left: 1317.5px;
+    transform: rotate(-88.8912deg);
+}
+#ultos1{
+    width: 150.053px;
+    top: 6062px;
+    left: 1601px;
+    transform: rotate(91.5275deg);
+}
+#ultos2{
+    width: 222.827px;
+    top: 5934px;
+    left: 1470px;
+    transform: rotate(28.4052deg);
+}
+#ultos3{
+    width: 247.33px;
+    top: 6024px;
+    left: 1675px;
+    transform: rotate(-162.591deg);
+}
+#ultos4{
+    width: 204.551px;
+    top: 5959px;
+    left: 1802.5px;
+    transform: rotate(85.7946deg);
+}
+#ultos5{
+    width: 204.022px;
+    top: 5761px;
+    left: 1760.5px;
+    transform: rotate(70.2328deg);
+}
+#sage1{
+    width: 388.012px;
+    top: 6214.5px;
+    left: 2920px;
+    transform: rotate(-179.557deg);
+}
+#sage2{
+    width: 212.85px;
+    top: 6162.5px;
+    left: 3112px;
+    transform: rotate(30.1789deg);
+}
+#sage3{
+    width: 109.659px;
+    top: 6099.5px;
+    left: 3016px;
+    transform: rotate(9.97771deg);
+}
+#sage4{
+    width: 111.611px;
+    top: 6097px;
+    left: 3124.5px;
+    transform: rotate(167.583deg);
+}
+#sage5{
+    width: 159.013px;
+    top: 6029.5px;
+    left: 3043px;
+    transform: rotate(89.2793deg);
+}
+#sage6{
+    width: 141px;
+    top: 5879.5px;
+    left: 3050px;
+    transform: rotate(90deg);
+}
+#veilwarden1{
+    width: 176.505px;
+    top: 6220.5px;
+    left: 3705.5px;
+    transform: rotate(82.5126deg);
+}
+#veilwarden2{
+    width: 137.463px;
+    top: 6065px;
+    left: 3700px;
+    transform: rotate(81.6341deg);
+}
+#veilwarden3{
+    width: 106.888px;
+    top: 5944.5px;
+    left: 3717px;
+    transform: rotate(100.784deg);
+}
+#veilwarden4{
+    width: 151.119px;
+    top: 5895px;
+    left: 3631.5px;
+    transform: rotate(-2.27546deg);
+}
+#veilwarden5{
+    width: 192.354px;
+    top: 5803px;
+    left: 3521px;
+    transform: rotate(81.0274deg);
+}
+#mirage1{
+    width: 148.223px;
+    top: 6224.5px;
+    left: 4352.5px;
+    transform: rotate(97.3647deg);
+}
+#mirage2{
+    width: 169.012px;
+    top: 6066.5px;
+    left: 4350px;
+    transform: rotate(89.322deg);
+}
+#mirage3{
+    width: 134.164px;
+    top: 5916px;
+    left: 4355px;
+    transform: rotate(79.6952deg);
+}
+#mirage4{
+    width: 195.78px;
+    top: 5913.5px;
+    left: 4240.5px;
+    transform: rotate(-40.4426deg);
+}
+#mirage5{
+    width: 196.329px;
+    top: 5914.5px;
+    left: 4385px;
+    transform: rotate(-138.924deg);
+}
+#leviathan1{
+    width: 284.48px;
+    top: 6190.5px;
+    left: 4885px;
+    transform: rotate(106.333deg);
+}
+#leviathan2{
+    width: 233.848px;
+    top: 6013px;
+    left: 5065.5px;
+    transform: rotate(159.473deg);
+}
+#leviathan3{
+    width: 155px;
+    top: 5925.5px;
+    left: 5275px;
+    transform: rotate(143.13deg);
+}
+#leviathan4{
+    width: 196.901px;
+    top: 5859.5px;
+    left: 5413.5px;
+    transform: rotate(168.576deg);
+}
+#leviathan5{
+    width: 164.438px;
+    top: 5797px;
+    left: 5333px;
+    transform: rotate(94.1849deg);
+}
+#leviathan6{
+    width: 155.602px;
+    top: 5817px;
+    left: 5380px;
+    transform: rotate(127.164deg);
+}
+#empyrion1{
+    width: 218.358px;
+    top: 1216px;
+    left: 5908px;
+    transform: rotate(-61.5571deg);
+}
+#empyrion2{
+    width: 202.237px;
+    top: 1401px;
+    left: 5907px;
+    transform: rotate(-118.339deg);
+}
+#empyrion3{
+    width: 184.043px;
+    top: 1492px;
+    left: 6055px;
+    transform: rotate(-178.755deg);
+}
+#empyrion4{
+    width: 164.222px;
+    top: 1412.5px;
+    left: 6170px;
+    transform: rotate(96.9952deg);
+}
+#empyrion5{
+    width: 88.7299px;
+    top: 1302.5px;
+    left: 6187px;
+    transform: rotate(39.9709deg);
+}
+#empyrion6{
+    width: 96.8297px;
+    top: 1312px;
+    left: 6118px;
+    transform: rotate(-51.7098deg);
+}
+#keye1{
+    width: 248px;
+    top: 723px;
+    left: 3940px;
+    transform: rotate(90deg);
+}
+#keye2{
+    width: 113px;
+    top: 542.5px;
+    left: 4009px;
+    transform: rotate(90deg);
+}
+#keye3{
+    width: 173.566px;
+    top: 428.5px;
+    left: 3912px;
+    transform: rotate(41.4965deg);
+}
+#keye4{
+    width: 170.836px;
+    top: 430px;
+    left: 4045.5px;
+    transform: rotate(139.035deg);
+}
+#keye5{
+    width: 111px;
+    top: 430.5px;
+    left: 4009px;
+    transform: rotate(90deg);
+}
+#amatok1{
+    width: 165px;
+    top: 1342.5px;
+    left: 3784px;
+    transform: rotate(90deg);
+}
+#amatok2{
+    width: 124px;
+    top: 1198px;
+    left: 3805px;
+    transform: rotate(90deg);
+}
+#amatok3{
+    width: 125px;
+    top: 1260px;
+    left: 3741.5px;
+    transform: rotate(0deg);
+}
+#amatok4{
+    width: 129.12px;
+    top: 1198px;
+    left: 3661px;
+    transform: rotate(73.8108deg);
+}
+#amatok5{
+    width: 130px;
+    top: 1260px;
+    left: 3869px;
+    transform: rotate(180deg);
+}
+#amatok6{
+    width: 130.292px;
+    top: 1198px;
+    left: 3950px;
+    transform: rotate(107.879deg);
+}
+
+
+/* OPERA */
+ 
