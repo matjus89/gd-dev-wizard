@@ -7,17 +7,15 @@ class SpecificDevotionPoints:
     """
     The class represents the in-game affinity.
     """
-    def __init__(self, name, points=0, crossroads_lock=True, minimum=0):
+    def __init__(self, name, points=0, minimum=0):
         """
 
         :param name: The name of an affinity.
         :param points: Defines a current number of points accumulated to a specific affinity.
-        :param crossroads_lock:
         :param minimum: Defines the minimum number of points needed for all unlocked stars to stay in unlocked status.
         """
         self.name = name
         self.points = points
-        self.crossroads_lock = crossroads_lock
         self.minimum = minimum
 
     def __repr__(self):
@@ -27,7 +25,7 @@ class SpecificDevotionPoints:
         """
         Upon unlocking the last star of a constellation a bonus of affinity points is added to affinity points pool.
         :param x: The number of points added.
-        :return:
+        :return: The sum of points
         """
 
         self.points += x
@@ -611,7 +609,7 @@ class Constellation:
 
     def __init__(self, name, affinity_bonus, requirement, members, requirement_ready=False, missing_points=None,
                  unlocked=False, tier=1, requir_met=None, requir_met_two=None, updated_requirement=None,
-                 requir_met_three=None):
+                 requir_met_three=None, original=None):
         """
         :param name: Name of a constellation, e.g. Panther.
         :param affinity_bonus: The bonus to affinities that is added upon unlocking all stars of a constellation.
@@ -629,6 +627,7 @@ class Constellation:
         :param requir_met_two: Defines if the second affinity requirement is met.
         :param updated_requirement: The dictionary with updated requirement values.
         :param requir_met_three: Defines if the second affinity requirement is met.
+        :param original: Stores original constellation requirement in case it's been changes and needs reset.
         """
         self.name = name
         self.members = members
@@ -642,6 +641,7 @@ class Constellation:
         self.requir_met_two = requir_met_two
         self.requir_met_three = requir_met_three
         self.updated_requirement = updated_requirement
+        self.original = original
 
     def __repr__(self):
         return '{}'.format(self.name)
@@ -657,6 +657,14 @@ class Constellation:
             return {requir: self.requirement[requir] - eval(requir).points}
         else:
             return {requir: 'no missing affinity points'}
+
+    def reset_requirement(self):
+        """
+        Resets the constellation requirement to self.original.
+        :return:
+        """
+        self.requirement = self.original
+        return self.requirement
 
     def update_status(self):
         """
@@ -889,6 +897,7 @@ class Possibility:
         :return: Constellations which affinity bonus is equal or higher than the numbers in number_repr.
         """
         self.options = []
+        # const_list = [x for x in const_list if x.unlocked is False]
         # Limit the constellations list to those constellations which grant the best affinity bonus relatively to the
         # number of their devotion points requirement.
         const_list = [x for x in const_list if x.tier == 1]
@@ -899,18 +908,17 @@ class Possibility:
                         for item in const_list:
                             if affinity in item.affinity_bonus and item.affinity_bonus[affinity] >= num:
                                 self.options.append(item)
-                            elif second in item.affinity_bonus and \
-                                    item.affinity_bonus[second] >= num:
+                            elif second in item.affinity_bonus and item.affinity_bonus[second] >= num:
                                 self.options.append(item)
-                            elif third in item.affinity_bonus and \
-                                    item.affinity_bonus[third] >= num:
+                            elif third in item.affinity_bonus and item.affinity_bonus[third] >= num:
                                 self.options.append(item)
         else:
             for item in const_list:
-                if affinity in item.affinity_bonus:
+                if affinity in item.affinity_bonus and item.unlocked is False:
                     for num in self.number_repr[affinity]:
                         if item.affinity_bonus[affinity] >= num:
                             self.options.append(item)
+
         self.options = list(set(self.options))
         return self.options
 
@@ -1103,20 +1111,23 @@ class Possibility:
         :param var: Number of constellations to pick in order to meet a star's affinity requirement.
         :return: An updated temp_list.
         """
-        counter = 0
-        if self.selected is None:
-            self.selected = []
-        temp_list = [x for x in temp_list if x not in self.selected]
-        temp_list = list(set(temp_list))
-        # Number of members of a constellation define how many devotion points is needed to unlock the constellation.
-        temp_list.sort(key=lambda a: len(a.members))
-        stars_const = None
+        # If small difference is True it means that one constellation is enough to meet the current requirement.
+        small_difference = False
         if type(star) == Star:
             stars_const = star.find_constellation()
         else:
             stars_const = star
+        if stars_const.requirement[affinity_type] - eval(affinity_type).points + 1 < 6:
+            small_difference = True
+        counter = 0
+        if self.selected is None:
+            self.selected = []
+        if len(temp_list) == 0:
+            temp_list.append(self.selected[0])
+        temp_list = list(set(temp_list))
+        # Number of members of a constellation define how many devotion points are needed to unlock the constellation.
+        temp_list.sort(key=lambda a: len(a.members))
 
-        # Determine the best constellation to unlock.
         best_option = temp_list[0]
         if best_option in self.selected and len(self.selected) > 1:
             best_option = temp_list[1]
@@ -1127,11 +1138,13 @@ class Possibility:
                 continue
             # In case there are more items in temp_list with the same devotion points requirement, pick the one with
             # higher affinity bonus.
-            if len(option.members) == len(best_option.members) and option.affinity_bonus[affinity_type] > \
-                    minimum_affinity and option not in self.selected:
+            if small_difference is False and len(option.members) == len(best_option.members) and \
+                    option.affinity_bonus[affinity_type] > minimum_affinity and option not in self.selected:
                 best_option = option
-            if option not in self.selected and best_option not in self.selected:
+            if small_difference is False and option not in self.selected and best_option not in self.selected:
                 self.selected.append(best_option)
+        if small_difference:
+            self.selected.append(best_option)
         temp_list.remove(best_option)
         counter += 1
         # When counter reaches the value of var it means that all needed constellations have been selected.
@@ -1277,6 +1290,7 @@ class FastMode:
         devpoints_needed = 0
         crossroads_points = 0
         if self.merged:
+            self.merged = list(set(self.merged))
             for constellation in self.merged:
                 devpoints_needed += len(constellation.members)
                 if 'Crossroads' in constellation.name:
@@ -2297,7 +2311,7 @@ healing_rain = Star("Tree_of_Life", "Healing Rain", rank=3, line=3, Seconds_Skil
                     Meter_Radius=15, Health_Restored=[10/100, 700], Health_Regenerated_Per_Second=180,
                     Increases_Health_Regeneration=60/100, Energy_Regenerated_per_Second=12,
                     Increases_Energy_Regeneration=55/100)
-tree_of_life = Constellation("Tree_of_Life", [], {Points_of_Order.name: 7, Points_of_Primordial.name: 20},
+tree_of_life = Constellation("Tree_of_Life", [], {Points_of_Primordial.name: 20, Points_of_Order.name: 7},
                              [treef, trees, treet, treeft, treeff, healing_rain], tier=3)
 
 korvaf = Star("Korvak_The_Eldritch_Sun", "First Korvak The Eldritch Sun Star", [18, 10],
@@ -2907,21 +2921,26 @@ def update_bonus_pool(bonus):
 
 def find_possibilities(aff, after_rare=False, rare=None, rare_contribution=0):
     """
-
-    :param aff:
-    :param after_rare:
+    Finds possibilities for standard sizes, also takes rare contributions if they are specified.
+    :param aff: affinity type
+    :param after_rare: Defines if the function should take into account rare contributions.
     :param rare:
-    :param rare_contribution:
-    :return:
+    :param rare_contribution: The number of affinity points gained from generating rare possibility.
+    :return: A list of dictionaries. One dictionary contains affinity name as key and numbers representing affinity
+    requirement for the star.
     """
+
+    # if star.find_constellation().requirement[aff] - rare_contribution < 6:
+    #     global close_check
+    #     close_check = aff
     result = []
     size = None
     if rare == 1:
         rare = 2
     if type(star) == Star:
-        base_requirement = star.find_constellation().requirement[aff] - rare_contribution
+        base_requirement = star.find_constellation().requirement[aff] - rare_contribution + 1
     else:
-        base_requirement = star.requirement[aff] - rare_contribution
+        base_requirement = star.requirement[aff] - rare_contribution + 1
 
     number = base_requirement
     if aff == Points_of_Order.name or aff == Points_of_Chaos.name:
@@ -2936,9 +2955,9 @@ def find_possibilities(aff, after_rare=False, rare=None, rare_contribution=0):
     elif aff == Points_of_Ascendant.name or aff == Points_of_Eldritch.name:
         if base_requirement >= 17:
             size = 4
-        elif 17 > base_requirement >= 12:
+        elif 17 > base_requirement >= 11:
             size = 3
-        elif 12 > base_requirement > 6:
+        elif 11 > base_requirement > 6:
             size = 2
         else:
             size = 1
@@ -2960,47 +2979,51 @@ def find_possibilities(aff, after_rare=False, rare=None, rare_contribution=0):
     return result
 
 
-def find_rare_possibilities(aff, st):
+def find_rare_possibilities(aff, st, contribution=0):
     """
     Some constellations give a bonus to two types of affinity. Therefore in some rare cases unlocking such a
     constellation is a better choice even if it takes more devotion points.
     :param aff: Affinity type.
     :param st: A star to unlock.
+    :param contribution: Number of affinity points already unlocked.
     :return: A list of dictionaries. One dictionary contains affinity name as key and numbers representing affinity
     requirement for the star.
     """
+
+    # if star.find_constellation().requirement[aff] - contribution < 6:
+    #     global close_check
+    #     close_check = aff
     result = []
     size = None
     if type(st) == Star:
-        const = st.find_constellation()
+        base_requirement = star.find_constellation().requirement[aff] - contribution + 1
     else:
-        const = st
-
-    number = const.requirement[aff]
+        base_requirement = star.requirement[aff] - contribution + 1
+    number = base_requirement
     if aff == Points_of_Order.name or aff == Points_of_Chaos.name:
-        if const.requirement[aff] >= 8:
+        if base_requirement >= 8:
             size = 4
-        elif 7 >= const.requirement[aff] > 5:
+        elif 7 >= base_requirement > 5:
             size = 3
-        elif const.requirement[aff] <= 5:
+        elif base_requirement <= 5:
             size = 2
-        elif const.requirement[aff] == 2:
+        elif base_requirement == 2:
             size = 1
     elif aff == Points_of_Ascendant.name or aff == Points_of_Eldritch.name:
-        if const.requirement[aff] >= 17:
+        if base_requirement >= 17:
             size = 5
-        elif 17 > const.requirement[aff] >= 12:
+        elif 17 > base_requirement >= 12:
             size = 4
-        elif 12 > const.requirement[aff] > 6:
+        elif 12 > base_requirement > 6:
             size = 3
         else:
             size = 1
     elif aff == Points_of_Primordial.name:
-        if const.requirement[aff] >= 16:
+        if base_requirement >= 16:
             size = 5
-        elif 16 > const.requirement[aff] >= 11:
+        elif 16 > base_requirement >= 11:
             size = 4
-        elif 11 > const.requirement[aff] > 5:
+        elif 11 > base_requirement > 5:
             size = 3
         else:
             size = 1
@@ -3073,7 +3096,7 @@ def create_possibilities(poss_list, aff, second):
     return result
 
 
-def choose_best(picks, affinity_number, standard, rare=None, mixed=None, rare_two=None, rare_three=None):
+def choose_best(picks, affinity_number, standard, rare=None, mixed=None):
     """
     Calculates which of the ways of unlocking constellations takes least devotion points.
     :param picks: A list of methods(rare, standard, mixed).
@@ -3090,8 +3113,7 @@ def choose_best(picks, affinity_number, standard, rare=None, mixed=None, rare_tw
     elif affinity_number == 2:
         best = min(standard.calculate_devpoints(2), rare.calculate_devpoints(2), mixed.calculate_devpoints(2))
     else:
-        best = min(standard.calculate_devpoints(3), rare.calculate_devpoints(3), rare_two.calculate_devpoints(3),
-                   rare_three.calculate_devpoints(3))
+        best = min(standard.calculate_devpoints(3), rare.calculate_devpoints(3))
     for i in picks:
         if i and best == i.calculate_devpoints(affinity_number):
             best = i
@@ -3147,10 +3169,10 @@ def fast_mode(clicked_star):
                     int(stars_constellation.requirement[first_related_affinity])
 
             # Now determine all possible ways to meet the star requirement.
-            standard_possibilities = find_possibilities(first_related_affinity)
+            standard_possibilities = find_possibilities(first_related_affinity,
+                                                        rare_contribution=eval(first_related_affinity).points)
             # Create objects for every possible way. The object represents a set of constellations which need to be
-            # unlocked
-            # to reach the desired star.
+            # unlocked to reach the desired star.
             standard_ps = create_possibilities(standard_possibilities, first_related_affinity, second_related_affinity)
 
             # Create lists with constellations which give affinity bonus to searched affinity types.
@@ -3171,7 +3193,7 @@ def fast_mode(clicked_star):
         elif len(current_requirement) == 2:
             first_related_affinity = list(current_requirement.keys())[0]
             second_related_affinity = list(current_requirement.keys())[1]
-            third_related_affinity = 'gowno'
+            third_related_affinity = 'empty'
             if type(stars_constellation.requirement[first_related_affinity]) == list and \
                     len(stars_constellation.requirement[first_related_affinity]) > 1:
 
@@ -3189,13 +3211,15 @@ def fast_mode(clicked_star):
                                     == first_related_affinity or affinity == second_related_affinity and x.tier == 1]
             const_affinity_bonus_unlockable = [x for x in const_affinity_bonus if x.update_status()]
             # Now determine all possible ways to meet the star requirement.
-            rare_possibilities = find_rare_possibilities(first_related_affinity, star)
-            standard_possibilities = find_possibilities(first_related_affinity, star)
-            standard_possibilities_two = find_possibilities(second_related_affinity, star)
+            rare_possibilities = find_rare_possibilities(first_related_affinity, star,
+                                                         contribution=eval(first_related_affinity).points)
+            standard_possibilities = find_possibilities(first_related_affinity,
+                                                        rare_contribution=eval(first_related_affinity).points)
+            standard_possibilities_two = find_possibilities(second_related_affinity,
+                                                            rare_contribution=eval(second_related_affinity).points)
 
-            # Create objects for every possible way. The object represents a set of constellations which need to be
-            # unlocked
-            # to reach the desired star.
+            # Create objects for each possibility. The object represents a set of constellations which need to be
+            # unlocked to reach the desired star.
             rare_ps = create_possibilities(rare_possibilities, first_related_affinity, second_related_affinity)
             standard_ps = create_possibilities(standard_possibilities, first_related_affinity, second_related_affinity)
             standard_ps_two = create_possibilities(standard_possibilities_two, second_related_affinity,
@@ -3213,18 +3237,22 @@ def fast_mode(clicked_star):
                                                 second_related_affinity, third_related_affinity), standard_ps))
             list(map(lambda a: a.update_options(const_affinity_bonus_unlockable, a.affinity,
                                                 second_related_affinity, third_related_affinity), standard_ps_two))
-            # Find constellations for each set of possibility.
+            # Find constellations for each possibility.
             rare_selection = list(map(lambda a: a.update_selected(a.affinity), rare_ps))
             rare_selection = [x for x in rare_selection if x]
             standard_selection = list(map(lambda a: a.update_selected(a.affinity), standard_ps))
             standard_selection = [x for x in standard_selection if x]
             second_standard_selection = list(map(lambda a: a.update_selected(a.affinity), standard_ps_two))
             second_standard_selection = [x for x in second_standard_selection if x]
+            for i in second_standard_selection:
+                if sum([x.members[0].bonus_value[0] for x in i]) < \
+                        stars_constellation.requirement[second_related_affinity]:
+                    second_standard_selection.remove(i)
+                    break
             # Mixed selection combines standard and rare method. If a standard_selection contains a constellation
-            # which give
-            # bonus to two searched affinity types, the program will calculate a new value for the second list of
-            # possibility sets. This method though does not use a greater 'size' for a possibility set like the rare
-            # method does.
+            # which give bonus to two searched affinity types, the program will calculate a new value for the second
+            # list of possibility sets. This method though does not use a greater 'size' for a possibility set like the
+            # rare method does.
             mixed_selection = []
             for i in standard_selection:
                 for item in i:
@@ -3258,8 +3286,8 @@ def fast_mode(clicked_star):
                 rare_method = FastMode(star.name, 0, first_related_affinity, secondary=second_related_affinity)
             else:
                 rare_match_possibilities = find_possibilities(second_related_affinity, after_rare=True,
-                                                              rare=rare_included,
-                                                              rare_contribution=rare_contribution)
+                                                              rare=rare_included, rare_contribution=
+                                                              rare_contribution + eval(second_related_affinity).points)
                 rare_ps_two = create_possibilities(rare_match_possibilities, second_related_affinity,
                                                    second_related_affinity)
 
@@ -3289,7 +3317,8 @@ def fast_mode(clicked_star):
                     second_related_affinity] - mixed_included
                 mixed_match_possibilities = find_possibilities(second_related_affinity, after_rare=True,
                                                                rare=mixed_included,
-                                                               rare_contribution=mixed_contribution)
+                                                               rare_contribution=mixed_contribution +
+                                                                                 eval(second_related_affinity).points)
                 mixed_ps = create_possibilities(mixed_match_possibilities, second_related_affinity,
                                                 second_related_affinity)
                 mixed_selection = list(map(lambda a: a.update_options(const_affinity_bonus_unlockable,
@@ -3315,12 +3344,18 @@ def fast_mode(clicked_star):
                                     or affinity == third_related_affinity and x.tier == 1]
             const_affinity_bonus_unlockable = [x for x in const_affinity_bonus if x.update_status()]
             # Now determine all possible ways to meet the star requirement.
-            rare_aff_one = find_rare_possibilities(first_related_affinity, star)
-            rare_aff_two = find_rare_possibilities(second_related_affinity, star)
-            rare_aff_three = find_rare_possibilities(third_related_affinity, star)
-            standard_aff_one = find_possibilities(first_related_affinity)
-            standard_aff_two = find_possibilities(second_related_affinity)
-            standard_aff_three = find_possibilities(third_related_affinity)
+            rare_aff_one = find_rare_possibilities(first_related_affinity, star,
+                                                   contribution=eval(first_related_affinity).points)
+            rare_aff_two = find_rare_possibilities(second_related_affinity, star,
+                                                   contribution=eval(second_related_affinity).points)
+            rare_aff_three = find_rare_possibilities(third_related_affinity, star,
+                                                     contribution=eval(third_related_affinity).points)
+            standard_aff_one = find_possibilities(first_related_affinity,
+                                                  rare_contribution=eval(first_related_affinity).points)
+            standard_aff_two = find_possibilities(second_related_affinity,
+                                                  rare_contribution=eval(second_related_affinity).points)
+            standard_aff_three = find_possibilities(third_related_affinity,
+                                                    rare_contribution=eval(third_related_affinity).points)
             # Create objects for every possible way. The object represents a set of constellations which need to be
             # unlocked
             # to
@@ -3332,6 +3367,7 @@ def fast_mode(clicked_star):
             standard_aff_two = create_possibilities(standard_aff_two, second_related_affinity, second_related_affinity)
             standard_aff_three = create_possibilities(standard_aff_three, third_related_affinity,
                                                       second_related_affinity)
+
             # Below block of code removes constellations which have two types of affinity bonus but they do not match
             # both searched affinities(first_related_affinity and second_related_affinity or third_related_affinity)
 
@@ -3363,7 +3399,6 @@ def fast_mode(clicked_star):
 
             # Find constellations for each set of possibility.
             first_rare_selection = list(map(lambda a: a.update_selected(a.affinity), rare_aff_one))
-            print('FIRST RARE', first_rare_selection)
             first_rare_selection = [x for x in first_rare_selection if x]
             second_rare_selection = list(map(lambda a: a.update_selected(a.affinity), rare_aff_two))
             second_rare_selection = [x for x in second_rare_selection if x]
@@ -3375,6 +3410,9 @@ def fast_mode(clicked_star):
             second_standard_selection = [x for x in second_standard_selection if x]
             third_standard_selection = list(map(lambda a: a.update_selected(a.affinity), standard_aff_three))
             third_standard_selection = [x for x in third_standard_selection if x]
+            exclude_insufficient(first_rare_selection, stars_constellation, first_related_affinity)
+            exclude_insufficient(second_rare_selection, stars_constellation, second_related_affinity)
+            exclude_insufficient(third_rare_selection, stars_constellation, third_related_affinity)
             # Let's calculate how many devotion points are needed to unlock a given list of constellations.
             add_up_members(first_rare_selection)
             add_up_members(second_rare_selection)
@@ -3398,7 +3436,7 @@ def fast_mode(clicked_star):
             rare_first_result = [rare_method.calculate_devpoints(3), rare_method.merged]
             standard_method = FastMode('standard method', first_standard_pick, first_related_affinity,
                                        poss_two=second_standard_pick,
-                                       secondary=second_related_affinity, tertiary=third_standard_pick,
+                                       secondary=second_related_affinity, tertiary=third_related_affinity,
                                        poss_three=third_standard_pick)
             standard_method.merge_possibilities()
             # Create a default mixed method object.
@@ -3423,8 +3461,7 @@ def fast_mode(clicked_star):
             third_rare_ps = create_possibilities(second_rare_match_possibilities, third_related_affinity,
                                                  second_related_affinity)
 
-            third_rare_contribution = \
-                stars_constellation.see_missing_points(requir=third_related_affinity)[
+            third_rare_contribution = stars_constellation.see_missing_points(requir=third_related_affinity)[
                     third_related_affinity] - third_rare_included
             third_rare_match_possibilities = find_possibilities(third_related_affinity, after_rare=True,
                                                                 rare=third_rare_included,
@@ -3449,36 +3486,35 @@ def fast_mode(clicked_star):
             fourth_rare_selection = [x for x in third_rare_selection if x]
             add_up_members(second_rare_selection)
             add_up_members(third_rare_selection)
-            rare_pick_aff_two = min(second_rare_selection, key=lambda a: a[-1])
-
-            rare_pick_aff_three = min(third_rare_selection, key=lambda a: a[-1])
-            rare_pick_aff_four = min(fourth_rare_selection, key=lambda a: a[-1])
-            rare_method_vtwo = FastMode('rare version two', rare_pick_aff_one, first_related_affinity,
-                                        secondary=second_related_affinity,
-                                        tertiary=third_related_affinity,  poss_two=rare_pick_aff_two,
-                                        poss_three=third_standard_pick)
-            rare_method_vtwo.merge_possibilities()
-
-            rare_method_vthree = FastMode('rare version three', rare_pick_aff_one, first_related_affinity,
-                                          secondary=second_related_affinity,
-                                          tertiary=third_related_affinity, poss_two=rare_pick_aff_two,
-                                          poss_three=rare_pick_aff_four)
-            rare_method_vthree.merge_possibilities()
-
-            final_result = choose_best([standard_method, rare_method, rare_method_vthree, rare_method_vtwo], 3,
-                                       standard_method, rare=rare_method, mixed=mixed_method,
-                                       rare_two=rare_method_vtwo, rare_three=rare_method_vthree)
+            final_result = choose_best([standard_method, rare_method], 3,
+                                       standard_method, rare=rare_method, mixed=mixed_method)
 
         list(map(lambda a: a.update_unlock_status() if type(a) != int else None, final_result))
         for i in final_result:
             if type(i) != int:
                 i.unlock_fast()
+
         stars_constellation.unlock_till_star(star)
         list(map(standard_mode_lock, crossroads_list))
         split_stars = [x.name.replace(' ', '') for x in unlocked_stars]
+
         const_affinity_bonus_unlockable.clear()
         const_affinity_bonus.clear()
         return split_stars
+
+
+def exclude_insufficient(lists, const, aff):
+    """
+    The function fixes the bug that picks bad constellations lists to unlock(Sum of affinity bonuses of these
+    constellations don't grant enough affinity points to unlock the clicked star).
+    :return:
+    """
+    for i in lists:
+        if sum([x.members[0].bonus_value[0] for x in i]) < const.requirement[aff] - eval(aff).points:
+            lists.remove(i)
+            break
+    return lists
+
 
 
 def to_square_one(x):
@@ -3552,16 +3588,7 @@ def glow_stars():
     to_glow = list(set(to_glow))
     return to_glow
 
-# print(fast_mode(shieff))
-# print(fast_mode(vire_fist))
-# print(Points_of_Primordial)
-# print(fast_mode(heavens_spear))
-# print(standard_mode(usoldiet))
-# standard_mode_lock(cleansing_waters)
-# print(standard_mode_lock(ulos))
-# print(fast_mode(abominable_might))
-# print(standard_mode_lock(abominable_might))
-# print(standard_mode(abominable_might))
+
 
 
 
