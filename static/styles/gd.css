@@ -309,7 +309,7 @@ html{
     width: 7433px;
     height: 6783px; 
     position: relative;
-    background-image: url('./bad_version.png');
+    background-image: url('./bck.png');
     background-position: center;
     margin: 0;
     background-repeat: no-repeat;
@@ -588,16 +588,7 @@ html{
     left: 4155px;
     top: 1720px;  
 }
-/* #proba{
-    width: 360px;
-    height: 50px;
-    background-color: red;
-    top: 1900px;
-    left: 4155px;
-    position: absolute;
-    background-image: url('devotion_connectoroff.png');
-    transform: rotate(90deg);
-} */
+
 #ThirdRattoshStaffStar {
     left: 4229px;
     top: 1660px;  
@@ -5320,5 +5311,5 @@ top: 3013px;
 }
 
 
-/* OPERA */
+
  
