@@ -3256,8 +3256,7 @@ def fast_mode(clicked_star):
             mixed_selection = []
             for i in standard_selection:
                 for item in i:
-                    if len(
-                            item.affinity_bonus) > 1 and first_related_affinity in item.affinity_bonus \
+                    if len(item.affinity_bonus) > 1 and first_related_affinity in item.affinity_bonus \
                             and second_related_affinity in item.affinity_bonus:
                         mixed_selection.append(i)
             # Let's calculate how many devotion points are needed to unlock a given list of constellations.
@@ -3357,9 +3356,7 @@ def fast_mode(clicked_star):
             standard_aff_three = find_possibilities(third_related_affinity,
                                                     rare_contribution=eval(third_related_affinity).points)
             # Create objects for every possible way. The object represents a set of constellations which need to be
-            # unlocked
-            # to
-            # reach the desired star.
+            # unlocked to reach the desired star.
             rare_aff_one = create_possibilities(rare_aff_one, first_related_affinity, second_related_affinity)
             rare_aff_two = create_possibilities(rare_aff_two, second_related_affinity, second_related_affinity)
             rare_aff_three = create_possibilities(rare_aff_three, third_related_affinity, second_related_affinity)
