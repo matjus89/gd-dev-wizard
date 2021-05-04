@@ -11,7 +11,7 @@
     <div class='container'>
 
         <div class='title'> <h1>Grim Dawn devotion wizard</h1> </div>
-    <div id='appDescription'> <h2> <p> <a href="https://www.devotionwizard.com/main"> Enter the website now </a> or take a quick look of how it works. </p>  </h2> </div>
+    <div id='appDescription'> <h2> <p> <a href="{{ url_for('display_attributes') }}"> Enter the website now </a> or take a quick look of how it works. </p>  </h2> </div>
     <div class='imageRow' id='firstRow'>
         <div class='tutorialContainer' id='firstBlink'> <div class='image-box'> <img src="{{ url_for('static', filename='styles/blink.png') }}" alt=""></div>  <div class='description' id='firstDescription'> <p> Blink mode lets you unlock any star with just one click. The app will reach the chosen star taking as little devotion points as possible while keeping to the in-game affinity requirements rules. <br> In order to activate the Blink Mode, click the 'Blink' button on the top of the page. </p> </div> </div>
         <div class='tutorialContainer' id='secondBlink'> <div class= 'image-box'> <img src="{{ url_for('static', filename='styles/blink2.png') }}" alt=""> </div>  <div class=description id='secondDescription'> <p> You can unlock stars and constellations this way as long as you have enough Devotion Points. You can also switch to Standard Mode if you wish to add or remove stars one by one. </p> </div> </div>
