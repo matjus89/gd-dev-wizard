@@ -29,11 +29,8 @@
         
            
         $('.tutorialContainer').bind('click', function(){
-            console.log('Width', $(window).width(), 'Height', $(window).height())
             let currentPosition = $(this).css('position')
-            console.log(currentPosition)
-            let doc = $(this)
-            
+            let doc = $(this)      
             if ($(window).width() > 2400){
                 $(this).css({'transform': 'scale(1.5)', 'position': 'absolute', 'background-color': 'black', 'color': 'white', 'z-index': '10'})
             }else{
@@ -43,7 +40,6 @@
             
             $(document).on('keydown', function(e){
                 if (e.key === 'Escape'){
-                    console.log('ESCAPE')
                     $(doc).css({'transform': 'scale(1)', 'position': currentPosition, 'background-color': 'white', 'color': 'black', 'z-index': '0'}) 
                 }
             })
