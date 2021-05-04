@@ -6,11 +6,10 @@ static_dir = ('/static')
 app = Flask(__name__)
 
 
-
 @app.route('/main/')
 def title():
     return render_template("gd.html")
-jsonified_stars = []
+
 
 # Welcome page.
 @app.route('/')
@@ -20,7 +19,6 @@ def welcome():
 # The main functionality of the site, the blink mode that lets a user unlock even third tier star with one click.
 @app.route('/main/blink_mode', methods=['GET', 'POST'])
 def blink_mode():
-    clickedItem = None
     if request.method == 'POST':
         clickedItem = request.form.get("clickedItem")
         fast_mode(eval(clickedItem))
@@ -44,6 +42,8 @@ def reset():
         unlocked_stars.clear()
         for i in constellations:
             i.update_unlock_status()
+            if i.original is not None:
+                i.reset_requirement()
         for i in affinities:
             i.zero()
             i.reset_minimum()
@@ -56,7 +56,6 @@ def reset():
 # Enables a user to unlock a star using the standard in-game mechanics.
 @app.route('/main/standard', methods=['GET', 'POST'])
 def standard():
-    clickedItem = None
     if request.method == 'POST':
         clickedItem = request.form['data']
         global instance_name
@@ -71,7 +70,6 @@ def standard():
 # Enables a user to lock a star using the standard in-game mechanics.
 @app.route('/main/standard_lock', methods=['GET', 'POST'])
 def standard_lock():
-    clickedItem = None
     if request.method == 'POST':
         clickedItem = request.form['data']
         global instance_name
@@ -86,7 +84,6 @@ def standard_lock():
 # Display attributes of any hovered star.
 @app.route('/main/display_attributes', methods=['GET', 'POST'])
 def display_attributes():
-    hoveredItem = None
     second_bonus = None
     second_bonus_value = None
     second_affinity = None
@@ -118,7 +115,6 @@ def display_attributes():
     if len(const.affinity_bonus) == 2:
         second_bonus = list(const.affinity_bonus.keys())[1]
         second_bonus_value = const.affinity_bonus[list(const.affinity_bonus.keys())[1]]
-    
 
     return jsonify(result=instance_name.display_attr(), first_affinity=first_affinity, second_affinity=second_affinity,
                    third_affinity=third_affinity, first_affinity_value=first_affinity_value,
@@ -132,7 +128,6 @@ def display_attributes():
 def display_results():
     to_dispatch = dispatch_process()
     return jsonify(result=to_dispatch)
-
 
 
 if __name__ == '__main__':
