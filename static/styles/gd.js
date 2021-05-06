@@ -303,16 +303,15 @@ $('.results').hide();
 $('.resultsButton').toggle();
 })
 
-// The reset function not only resets devotion points to its default value, it is also responsible for reseting stars' appearences to the initial, disabled state.
-$(function(){
-  $('#reset').bind('click', function(){
-    $.ajax({
-      type:'POST',
-      url: resetUrl
-    }).done(function(){
-      $.getJSON(resetUrl, function(data){
-        if(data.result.length === 0){
-          $('.starContainer').css('background-image', starDisabledUrl)
+// The reset function not only resets devotion points to its default value, it is also responsible for reseting stars' image to the initial, disabled state.
+function reset(){
+  $.ajax({
+    type: 'POST',
+    url: resetUrl
+  }).done(function(){
+    $.getJSON(resetUrl, function(data){
+      if (data.result.length === 0){
+        $('.starContainer').css('background-image', starDisabledUrl)
           $('.starContainer.skill').css('background-image', starSkillUrl)
           $('#devotionAvailable').html(data.devpoints)
           $('#ascendantsCounter p').html(data.asc)
@@ -320,11 +319,13 @@ $(function(){
           $('#eldritchCounter p').html(data.eld)
           $('#orderCounter p').html(data.ord)
           $('#primordialCounter p').html(data.prim)
-        }
-      })
+      }
     })
   })
-})
+}
+$(document).ready(reset)
+$('#reset').bind('click', reset)
+
 // The below variable is going to store the value of a background-image of a given star.
 let imageString;
 // Swap the background picture of a hovered star to add a glowing effect. It has to be done using JS because css ':hover' does not work once the 'background' attribute is changed via JS(after the reset function is executed). 
