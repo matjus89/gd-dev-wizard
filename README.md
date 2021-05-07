@@ -3,8 +3,9 @@ Repository for grim dawn devotion wizard app.
 
 gd-dev-wizard
 Repository for grim dawn devotion wizard web app: www.devotionwizard.com
+Hey, it's Mateusz and here are a few things you should know before visiting the site or reading the code. 
 The app inspired by the arpg game Grim Dawn. I've used materials available for modding in the game directory(constellations and stars images).
-Hi, It's Mateusz. I've decieded to create a little app for one of my favourite games. Grim Dawn Devotion Wizard features:
+Grim Dawn Devotion Wizard features:
 
 unlock any star with just one click,
 see all the bonuses gained from unlocked stars,
