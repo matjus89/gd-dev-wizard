@@ -28,22 +28,39 @@
     <script>
         
         // Enlarge images on click, return to original size by pressing escape button.
-        $('.tutorialContainer').bind('click', function(){
-            let currentPosition = $(this).css('position')
+        let clicked = false
+        if (clicked == false){
+            $('.tutorialContainer').bind('click', zoomInAndOut)
+        }else{
+            $('.tutorialContainer').off('click', zoomInAndOut)
+        }
+        
+
+        function zoomInAndOut(){
+            if (clicked == false){
+                clicked = true
+                let currentPosition = $(this).css('position')
             let doc = $(this)      
             if ($(window).width() > 2400){
-                $(this).css({'transform': 'scale(1.5)', 'position': 'absolute', 'background-color': 'black', 'color': 'white', 'z-index': '10'})
+                $(this).css({'transform': 'scale(1.5)', 'position': 'absolute', 'background-color': 'black', 'color': 'white', 'text-align': 'center', 'z-index': '10'})
+                console.log('scale 1.5')
             }else{
+                console.log('scale 1')
                 $(this).css({'transform': 'scale(1)', 'position': 'absolute', 'background-color': 'black', 'color': 'white', 'text-align': 'center', 'z-index': '10'})
                 
             }
             
             $(document).on('keydown', function(e){
                 if (e.key === 'Escape'){
-                    $(doc).css({'transform': 'scale(1)', 'position': currentPosition, 'background-color': 'white', 'color': 'black', 'z-index': '0'}) 
+                    $(doc).css({'transform': 'scale(1)', 'position': currentPosition, 'background-color': 'white', 'color': 'black', 'z-index': '0'})
+                    $('.tutorialContainer').bind('click',zoomInAndOut) 
+                    clicked = false
                 }
             })
-        })
+            
+            
+            }
+        }
     </script>
 </body>
 </html>
